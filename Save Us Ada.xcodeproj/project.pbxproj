@@ -133,6 +133,7 @@
 		B485664D16D33CA200B5E608 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B485664C16D33CA200B5E608 /* AppDelegate.m */; };
 		B485665016D33CA200B5E608 /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B485664F16D33CA200B5E608 /* HelloWorldLayer.m */; };
 		B485665316D33CA200B5E608 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B485665216D33CA200B5E608 /* IntroLayer.m */; };
+		B485665A16D33CB600B5E608 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B485665916D33CB600B5E608 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -398,6 +399,7 @@
 		B485664F16D33CA200B5E608 /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
 		B485665116D33CA200B5E608 /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
 		B485665216D33CA200B5E608 /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
+		B485665916D33CB600B5E608 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -423,6 +425,7 @@
 		B48564B516D33CA000B5E608 = {
 			isa = PBXGroup;
 			children = (
+				B485665916D33CB600B5E608 /* README.md */,
 				B48564D316D33CA000B5E608 /* Save Us Ada */,
 				B48564C016D33CA000B5E608 /* Frameworks */,
 				B48564BF16D33CA000B5E608 /* Products */,
@@ -895,6 +898,7 @@
 				B48564EA16D33CA100B5E608 /* Icon@2x.png in Resources */,
 				B48564ED16D33CA100B5E608 /* iTunesArtwork in Resources */,
 				B485662B16D33CA200B5E608 /* ChangeLog in Resources */,
+				B485665A16D33CB600B5E608 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
