@@ -11,4 +11,12 @@
 
 @implementation TalkingHead
 
+
+-(id)initWithSpriteNamed:(NSString *)name {
+	if(self = [super init]) {
+		_sprite = [CCSprite spriteWithFile:name];
+	}
+	return self;
+}
+
 @end

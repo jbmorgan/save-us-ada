@@ -13,4 +13,8 @@
     
 }
 
+@property (readonly, retain) CCSprite *sprite;
+
+-(id)initWithSpriteNamed:(NSString *)name;
+
 @end
