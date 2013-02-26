@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B217C8016DD071C005FBEA6 /* CountingGameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B217C7F16DD071C005FBEA6 /* CountingGameLayer.m */; };
+		6B217C8416DD0744005FBEA6 /* WordGameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B217C8316DD0744005FBEA6 /* WordGameLayer.m */; };
+		6B217C8716DD075E005FBEA6 /* ImageGameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B217C8616DD075E005FBEA6 /* ImageGameLayer.m */; };
+		6B217C8A16DD077A005FBEA6 /* StoryPointLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B217C8916DD077A005FBEA6 /* StoryPointLayer.m */; };
+		6B217C9016DD07A9005FBEA6 /* TalkingHead.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B217C8F16DD07A9005FBEA6 /* TalkingHead.m */; };
+		6B217C9416DD07CC005FBEA6 /* BinaryCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B217C9316DD07CC005FBEA6 /* BinaryCard.m */; };
+		6B217C9716DD07DA005FBEA6 /* ImageGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B217C9616DD07DA005FBEA6 /* ImageGrid.m */; };
+		6B217C9A16DD07E8005FBEA6 /* ImageGridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B217C9916DD07E8005FBEA6 /* ImageGridCell.m */; };
+		6B217C9D16DD0CBC005FBEA6 /* GameStateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B217C9C16DD0CBC005FBEA6 /* GameStateManager.m */; };
 		B48564C216D33CA000B5E608 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B48564C116D33CA000B5E608 /* QuartzCore.framework */; };
 		B48564C416D33CA000B5E608 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B48564C316D33CA000B5E608 /* OpenGLES.framework */; };
 		B48564C616D33CA000B5E608 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B48564C516D33CA000B5E608 /* OpenAL.framework */; };
@@ -137,6 +146,24 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6B217C7E16DD071C005FBEA6 /* CountingGameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountingGameLayer.h; sourceTree = "<group>"; };
+		6B217C7F16DD071C005FBEA6 /* CountingGameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountingGameLayer.m; sourceTree = "<group>"; };
+		6B217C8216DD0744005FBEA6 /* WordGameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordGameLayer.h; sourceTree = "<group>"; };
+		6B217C8316DD0744005FBEA6 /* WordGameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordGameLayer.m; sourceTree = "<group>"; };
+		6B217C8516DD075E005FBEA6 /* ImageGameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageGameLayer.h; sourceTree = "<group>"; };
+		6B217C8616DD075E005FBEA6 /* ImageGameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageGameLayer.m; sourceTree = "<group>"; };
+		6B217C8816DD077A005FBEA6 /* StoryPointLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryPointLayer.h; sourceTree = "<group>"; };
+		6B217C8916DD077A005FBEA6 /* StoryPointLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryPointLayer.m; sourceTree = "<group>"; };
+		6B217C8E16DD07A9005FBEA6 /* TalkingHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkingHead.h; sourceTree = "<group>"; };
+		6B217C8F16DD07A9005FBEA6 /* TalkingHead.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalkingHead.m; sourceTree = "<group>"; };
+		6B217C9216DD07CC005FBEA6 /* BinaryCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BinaryCard.h; sourceTree = "<group>"; };
+		6B217C9316DD07CC005FBEA6 /* BinaryCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BinaryCard.m; sourceTree = "<group>"; };
+		6B217C9516DD07DA005FBEA6 /* ImageGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageGrid.h; sourceTree = "<group>"; };
+		6B217C9616DD07DA005FBEA6 /* ImageGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageGrid.m; sourceTree = "<group>"; };
+		6B217C9816DD07E8005FBEA6 /* ImageGridCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageGridCell.h; sourceTree = "<group>"; };
+		6B217C9916DD07E8005FBEA6 /* ImageGridCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageGridCell.m; sourceTree = "<group>"; };
+		6B217C9B16DD0CBC005FBEA6 /* GameStateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStateManager.h; sourceTree = "<group>"; };
+		6B217C9C16DD0CBC005FBEA6 /* GameStateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameStateManager.m; sourceTree = "<group>"; };
 		B48564BE16D33CA000B5E608 /* Save Us Ada.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Save Us Ada.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B48564C116D33CA000B5E608 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B48564C316D33CA000B5E608 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -422,6 +449,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B217C8116DD0726005FBEA6 /* Layers */ = {
+			isa = PBXGroup;
+			children = (
+				6B217C7E16DD071C005FBEA6 /* CountingGameLayer.h */,
+				6B217C7F16DD071C005FBEA6 /* CountingGameLayer.m */,
+				6B217C8216DD0744005FBEA6 /* WordGameLayer.h */,
+				6B217C8316DD0744005FBEA6 /* WordGameLayer.m */,
+				6B217C8516DD075E005FBEA6 /* ImageGameLayer.h */,
+				6B217C8616DD075E005FBEA6 /* ImageGameLayer.m */,
+				6B217C8816DD077A005FBEA6 /* StoryPointLayer.h */,
+				6B217C8916DD077A005FBEA6 /* StoryPointLayer.m */,
+			);
+			name = Layers;
+			sourceTree = "<group>";
+		};
+		6B217C9116DD07AD005FBEA6 /* Game Classes */ = {
+			isa = PBXGroup;
+			children = (
+				6B217C8E16DD07A9005FBEA6 /* TalkingHead.h */,
+				6B217C8F16DD07A9005FBEA6 /* TalkingHead.m */,
+				6B217C9216DD07CC005FBEA6 /* BinaryCard.h */,
+				6B217C9316DD07CC005FBEA6 /* BinaryCard.m */,
+				6B217C9516DD07DA005FBEA6 /* ImageGrid.h */,
+				6B217C9616DD07DA005FBEA6 /* ImageGrid.m */,
+				6B217C9816DD07E8005FBEA6 /* ImageGridCell.h */,
+				6B217C9916DD07E8005FBEA6 /* ImageGridCell.m */,
+				6B217C9B16DD0CBC005FBEA6 /* GameStateManager.h */,
+				6B217C9C16DD0CBC005FBEA6 /* GameStateManager.m */,
+			);
+			name = "Game Classes";
+			sourceTree = "<group>";
+		};
 		B48564B516D33CA000B5E608 = {
 			isa = PBXGroup;
 			children = (
@@ -459,6 +518,8 @@
 		B48564D316D33CA000B5E608 /* Save Us Ada */ = {
 			isa = PBXGroup;
 			children = (
+				6B217C8116DD0726005FBEA6 /* Layers */,
+				6B217C9116DD07AD005FBEA6 /* Game Classes */,
 				B485664B16D33CA200B5E608 /* AppDelegate.h */,
 				B485664C16D33CA200B5E608 /* AppDelegate.m */,
 				B485664E16D33CA200B5E608 /* HelloWorldLayer.h */,
@@ -1013,6 +1074,15 @@
 				B485664D16D33CA200B5E608 /* AppDelegate.m in Sources */,
 				B485665016D33CA200B5E608 /* HelloWorldLayer.m in Sources */,
 				B485665316D33CA200B5E608 /* IntroLayer.m in Sources */,
+				6B217C8016DD071C005FBEA6 /* CountingGameLayer.m in Sources */,
+				6B217C8416DD0744005FBEA6 /* WordGameLayer.m in Sources */,
+				6B217C8716DD075E005FBEA6 /* ImageGameLayer.m in Sources */,
+				6B217C8A16DD077A005FBEA6 /* StoryPointLayer.m in Sources */,
+				6B217C9016DD07A9005FBEA6 /* TalkingHead.m in Sources */,
+				6B217C9416DD07CC005FBEA6 /* BinaryCard.m in Sources */,
+				6B217C9716DD07DA005FBEA6 /* ImageGrid.m in Sources */,
+				6B217C9A16DD07E8005FBEA6 /* ImageGridCell.m in Sources */,
+				6B217C9D16DD0CBC005FBEA6 /* GameStateManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1120,6 +1190,7 @@
 				B485665816D33CA200B5E608 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
