@@ -16,6 +16,8 @@
 	if(self = [super init]) {
 		_sprite = [CCSprite spriteWithFile:name];
 	}
+	
+	self.position = ccp(100,100);
 	return self;
 }
 

@@ -10,7 +10,7 @@
 #import "cocos2d.h"
 
 @interface StoryPointLayer : CCLayer {
-    
+    CCSprite *_backgroundImage;
 }
 
 @end
