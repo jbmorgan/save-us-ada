@@ -10,7 +10,18 @@
 #import "cocos2d.h"
 
 @interface CountingGameLayer : CCLayer {
-    
+    int selectedTotal;
+	CCMenuItem	*sixteenCard,
+				*eightCard,
+				*fourCard,
+				*twoCard,
+				*oneCard;
+	CCLabelTTF	*selectedTotalLabel;
+	BOOL cards[5];
 }
+
+// returns a CCScene that contains the HelloWorldLayer as the only child
++(CCScene *) scene;
+-(void)cardPressed:(id)sender;
 
 @end

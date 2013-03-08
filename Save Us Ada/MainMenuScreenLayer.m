@@ -7,6 +7,8 @@
 //
 
 #import "MainMenuScreenLayer.h"
+#import "CountingGameLayer.h"
+
 // Needed to obtain the Navigation Controller
 #import "AppDelegate.h"
 
@@ -92,9 +94,9 @@
 									   ];
 		
 		
-		CCMenuItem *
+		CCMenuItem *playMenuItem = [CCMenuItemFont itemWithString:@"Play" target:self selector:@selector(playGame:)];
 		
-		CCMenu *menu = [CCMenu menuWithItems:itemAchievement, itemLeaderboard, nil];
+		CCMenu *menu = [CCMenu menuWithItems:playMenuItem, itemAchievement, itemLeaderboard, nil];
 		
 		[menu alignItemsHorizontallyWithPadding:20];
 		[menu setPosition:ccp( size.width/2, size.height/2 - 50)];
@@ -104,6 +106,11 @@
 		
 	}
 	return self;
+}
+
+-(void)playGame:(id)sender {
+	NSLog(@"playGame");
+	[[CCDirector sharedDirector] replaceScene:[CountingGameLayer scene]];
 }
 
 // on "dealloc" you need to release all your retained objects
