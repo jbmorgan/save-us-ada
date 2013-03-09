@@ -35,6 +35,7 @@
 	if( (self=[super init]) ) {
 		
 		selectedTotal = 0;
+		targetTotal = 19;
 		
 		for(int i = 0; i < 5; i++) {
 			cards[i] = NO;
@@ -42,6 +43,8 @@
 		
 		// create and initialize a Label
 		selectedTotalLabel = [CCLabelTTF labelWithString:@"0" dimensions:CGSizeMake(200.0f, 100.0f) hAlignment:kCCTextAlignmentRight fontName:@"Marker Felt" fontSize:64];
+		targetTotalLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Can you make %i?", targetTotal] dimensions:CGSizeMake(600.0f, 100.0f) hAlignment:kCCTextAlignmentCenter fontName:@"Marker Felt" fontSize:32];
+		
 		CCSprite *backgroundImage = [CCSprite spriteWithFile:@"SplashScreen.png"];
 		
 		// ask director for the window size
@@ -50,12 +53,14 @@
 		
 		
 		// position the label on the center of the screen
-		selectedTotalLabel.position =  ccp(1024-120,40);
+		selectedTotalLabel.position =  ccp(1024 - 120,40);
+		targetTotalLabel.position =  ccp(1024/2 - 300,40);
 		backgroundImage.position = center;
 		
 		// add the label as a child to this Layer
 //		[self addChild:backgroundImage];
 		[self addChild: selectedTotalLabel];
+		[self addChild: targetTotalLabel];
 		
 		
 		//
@@ -119,6 +124,14 @@
 	
 	NSLog(@"%i", selectedTotal);
 	[selectedTotalLabel setString:[NSString stringWithFormat:@"%i", selectedTotal]];
+	
+	if(selectedTotal == targetTotal) {
+		NSLog(@"Good job!");
+		while(targetTotal == selectedTotal)
+			targetTotal = arc4random() % 32;
+		
+		targetTotalLabel.string = [NSString stringWithFormat:@"Can you make %i?", targetTotal];
+	}
 		
 }
 
