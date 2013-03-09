@@ -15,10 +15,15 @@
 -(id)initWithSpriteNamed:(NSString *)name {
 	if(self = [super init]) {
 		_sprite = [CCSprite spriteWithFile:name];
+		[self addChild:_sprite];
 	}
 	
 	self.position = ccp(100,100);
 	return self;
+}
+
+-(void)say:(NSString *)text {
+	NSLog(@"%@", text);
 }
 
 @end
