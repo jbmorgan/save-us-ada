@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
+@class TalkingHead;
+
 @interface CountingGameLayer : CCLayer {
     int selectedTotal;
     int targetTotal;
@@ -20,10 +22,13 @@
 	CCLabelTTF	*selectedTotalLabel;
 	CCLabelTTF	*targetTotalLabel;
 	BOOL cards[5];
+	
+	TalkingHead	*ada;
+	
 }
 
-// returns a CCScene that contains the HelloWorldLayer as the only child
+// returns a CCScene that contains the CountingGameLayer as the only child
 +(CCScene *) scene;
--(void)cardPressed:(id)sender;
 
+-(void)cardPressed:(id)sender;
 @end

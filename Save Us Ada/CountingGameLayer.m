@@ -7,6 +7,7 @@
 //
 
 #import "CountingGameLayer.h"
+#import "TalkingHead.h"
 
 
 @implementation CountingGameLayer
@@ -41,11 +42,13 @@
 			cards[i] = NO;
 		}
 		
-		// create and initialize a Label
-		selectedTotalLabel = [CCLabelTTF labelWithString:@"0" dimensions:CGSizeMake(200.0f, 100.0f) hAlignment:kCCTextAlignmentRight fontName:@"Marker Felt" fontSize:64];
-		targetTotalLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Can you make %i?", targetTotal] dimensions:CGSizeMake(600.0f, 100.0f) hAlignment:kCCTextAlignmentCenter fontName:@"Marker Felt" fontSize:32];
+		ada = [[TalkingHead alloc] initWithSpriteNamed:@"ada-portrait.png"];
 		
-		CCSprite *backgroundImage = [CCSprite spriteWithFile:@"SplashScreen.png"];
+		// create and initialize a Label
+		selectedTotalLabel = [CCLabelTTF labelWithString:@"0" dimensions:CGSizeMake(200.0f, 100.0f) hAlignment:kCCTextAlignmentRight fontName:@"Mathlete-Bulky" fontSize:64];
+		targetTotalLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Can you make %i?", targetTotal] dimensions:CGSizeMake(220.0f, 100.0f) hAlignment:kCCTextAlignmentCenter fontName:@"Mathlete-Bulky" fontSize:38];
+		
+		CCSprite *backgroundImage = [CCSprite spriteWithFile:@"GameplayBackground.png"];
 		
 		// ask director for the window size
 		CGSize size = [[CCDirector sharedDirector] winSize];
@@ -53,14 +56,15 @@
 		
 		
 		// position the label on the center of the screen
-		selectedTotalLabel.position =  ccp(1024 - 120,40);
-		targetTotalLabel.position =  ccp(1024/2 - 300,40);
+		selectedTotalLabel.position =  ccp(1024 - 140,40);
+		targetTotalLabel.position =  ccp(142,300);
 		backgroundImage.position = center;
 		
 		// add the label as a child to this Layer
-//		[self addChild:backgroundImage];
+		[self addChild:backgroundImage];
 		[self addChild: selectedTotalLabel];
 		[self addChild: targetTotalLabel];
+		[self addChild: ada];
 		
 		
 		//
@@ -79,7 +83,7 @@
 		CCMenu *menu = [CCMenu menuWithItems:sixteenCard, eightCard, fourCard, twoCard, oneCard, nil];
 		
 		[menu alignItemsHorizontallyWithPadding:20];
-		[menu setPosition:ccp( size.width/2, size.height/2 - 50)];
+		[menu setPosition:ccp( 644, size.height/2 - 50)];
 		
 		// Add the menu to the layer
 		[self addChild:menu];
@@ -90,6 +94,8 @@
 
 -(void)cardPressed:(id)sender {
 	
+	//holy Jesus, this is rough
+	//fix this up ASAP
 	if(sender == sixteenCard) {
 		cards[4] = !cards[4];
 		if(cards[4])

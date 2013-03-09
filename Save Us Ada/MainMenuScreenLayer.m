@@ -8,6 +8,7 @@
 
 #import "MainMenuScreenLayer.h"
 #import "CountingGameLayer.h"
+#import "StoryPointLayer.h"
 
 // Needed to obtain the Navigation Controller
 #import "AppDelegate.h"
@@ -38,7 +39,7 @@
 	if( (self=[super init]) ) {
 		
 		// create and initialize a Label
-		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Main Menu Screen" fontName:@"Marker Felt" fontSize:64];
+//		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Main Menu Screen" fontName:@"Marker Felt" fontSize:64];
 		
 		CCSprite *backgroundImage = [CCSprite spriteWithFile:@"SplashScreen.png"];
 		
@@ -48,12 +49,12 @@
 		
 
 		// position the label on the center of the screen
-		label.position =  center;
+//		label.position =  center;
 		backgroundImage.position = center;
 		
 		// add the label as a child to this Layer
 		[self addChild:backgroundImage];
-		[self addChild: label];
+//		[self addChild: label];
 		
 		
 		//
@@ -61,7 +62,8 @@
 		//
 		
 		// Default font size will be 28 points.
-		[CCMenuItemFont setFontSize:28];
+		[CCMenuItemFont setFontSize:70];
+		[CCMenuItemFont setFontName:@"Mathlete-Bulky"];
 		
 		// Achievement Menu Item using blocks
 		CCMenuItem *itemAchievement = [CCMenuItemFont itemWithString:@"Achievements" block:^(id sender) {
@@ -94,23 +96,22 @@
 									   ];
 		
 		
-		CCMenuItem *playMenuItem = [CCMenuItemFont itemWithString:@"Play" target:self selector:@selector(playGame:)];
+		CCMenuItem *playMenuItem = [CCMenuItemFont itemWithString:@"Play" block:^(id sender) {
+			NSLog(@"playGame");
+			[[CCDirector sharedDirector] replaceScene:[StoryPointLayer scene]];
+			
+		}];
 		
 		CCMenu *menu = [CCMenu menuWithItems:playMenuItem, itemAchievement, itemLeaderboard, nil];
 		
 		[menu alignItemsHorizontallyWithPadding:20];
-		[menu setPosition:ccp( size.width/2, size.height/2 - 50)];
+		[menu setPosition:ccp( size.width/2, size.height/2 - 140)];
 		
 		// Add the menu to the layer
 		[self addChild:menu];
 		
 	}
 	return self;
-}
-
--(void)playGame:(id)sender {
-	NSLog(@"playGame");
-	[[CCDirector sharedDirector] replaceScene:[CountingGameLayer scene]];
 }
 
 // on "dealloc" you need to release all your retained objects

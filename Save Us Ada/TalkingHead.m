@@ -18,7 +18,7 @@
 		[self addChild:_sprite];
 	}
 	
-	self.position = ccp(100,100);
+	self.position = ccp(142,142);
 	return self;
 }
 

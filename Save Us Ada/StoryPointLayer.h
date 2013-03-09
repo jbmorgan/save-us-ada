@@ -9,8 +9,16 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
+@class TalkingHead;
+
 @interface StoryPointLayer : CCLayer {
-    CCSprite *_backgroundImage;
+    CCSprite *backgroundImage;
+	
+	TalkingHead *ada,
+				*prisoner;
 }
+
+// returns a CCScene that contains the StoryPointLayer as the only child
++(CCScene *) scene;
 
 @end

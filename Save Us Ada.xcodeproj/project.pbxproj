@@ -151,8 +151,6 @@
 		B4A2773416E670A800B252B8 /* hopper-portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = B4A2772816E670A800B252B8 /* hopper-portrait.png */; };
 		B4A2773516E670A800B252B8 /* jail-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B4A2772916E670A800B252B8 /* jail-hd.png */; };
 		B4A2773616E670A800B252B8 /* jail.png in Resources */ = {isa = PBXBuildFile; fileRef = B4A2772A16E670A800B252B8 /* jail.png */; };
-		B4A2773716E670A800B252B8 /* SplashScreen-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B4A2772B16E670A800B252B8 /* SplashScreen-hd.png */; };
-		B4A2773816E670A800B252B8 /* SplashScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = B4A2772C16E670A800B252B8 /* SplashScreen.png */; };
 		B4A2773916E670A800B252B8 /* turing-portrait-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B4A2772D16E670A800B252B8 /* turing-portrait-hd.png */; };
 		B4A2773A16E670A800B252B8 /* turing-portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = B4A2772E16E670A800B252B8 /* turing-portrait.png */; };
 		B4A2773E16E6727800B252B8 /* MainMenuScreenLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A2773D16E6727800B252B8 /* MainMenuScreenLayer.m */; };
@@ -176,6 +174,13 @@
 		B4A2776516E9745D00B252B8 /* 8card-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B4A2775516E9745D00B252B8 /* 8card-hd.png */; };
 		B4A2776616E9745D00B252B8 /* 8cardselected.png in Resources */ = {isa = PBXBuildFile; fileRef = B4A2775616E9745D00B252B8 /* 8cardselected.png */; };
 		B4A2776716E9745D00B252B8 /* 8cardselected-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B4A2775716E9745D00B252B8 /* 8cardselected-hd.png */; };
+		B4FF95A716EBE42500CBFA00 /* GameplayBackground-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B4FF95A516EBE42500CBFA00 /* GameplayBackground-hd.png */; };
+		B4FF95A816EBE42500CBFA00 /* GameplayBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = B4FF95A616EBE42500CBFA00 /* GameplayBackground.png */; };
+		B4FF95B216EBE7A100CBFA00 /* Mathlete-Bulky.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B4FF95B116EBE7A100CBFA00 /* Mathlete-Bulky.ttf */; };
+		B4FF95B516EBE91300CBFA00 /* SplashScreen-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B4FF95B316EBE91300CBFA00 /* SplashScreen-hd.png */; };
+		B4FF95B616EBE91300CBFA00 /* SplashScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = B4FF95B416EBE91300CBFA00 /* SplashScreen.png */; };
+		B4FF95B916EBEE7300CBFA00 /* StoryPointBackground-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B4FF95B716EBEE7300CBFA00 /* StoryPointBackground-hd.png */; };
+		B4FF95BA16EBEE7300CBFA00 /* StoryPointBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = B4FF95B816EBEE7300CBFA00 /* StoryPointBackground.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -468,8 +473,6 @@
 		B4A2772816E670A800B252B8 /* hopper-portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hopper-portrait.png"; sourceTree = "<group>"; };
 		B4A2772916E670A800B252B8 /* jail-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jail-hd.png"; sourceTree = "<group>"; };
 		B4A2772A16E670A800B252B8 /* jail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jail.png; sourceTree = "<group>"; };
-		B4A2772B16E670A800B252B8 /* SplashScreen-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SplashScreen-hd.png"; sourceTree = "<group>"; };
-		B4A2772C16E670A800B252B8 /* SplashScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SplashScreen.png; sourceTree = "<group>"; };
 		B4A2772D16E670A800B252B8 /* turing-portrait-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "turing-portrait-hd.png"; sourceTree = "<group>"; };
 		B4A2772E16E670A800B252B8 /* turing-portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "turing-portrait.png"; sourceTree = "<group>"; };
 		B4A2773C16E6727800B252B8 /* MainMenuScreenLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuScreenLayer.h; sourceTree = "<group>"; };
@@ -494,6 +497,13 @@
 		B4A2775516E9745D00B252B8 /* 8card-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "8card-hd.png"; sourceTree = "<group>"; };
 		B4A2775616E9745D00B252B8 /* 8cardselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 8cardselected.png; sourceTree = "<group>"; };
 		B4A2775716E9745D00B252B8 /* 8cardselected-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "8cardselected-hd.png"; sourceTree = "<group>"; };
+		B4FF95A516EBE42500CBFA00 /* GameplayBackground-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GameplayBackground-hd.png"; sourceTree = "<group>"; };
+		B4FF95A616EBE42500CBFA00 /* GameplayBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameplayBackground.png; sourceTree = "<group>"; };
+		B4FF95B116EBE7A100CBFA00 /* Mathlete-Bulky.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mathlete-Bulky.ttf"; sourceTree = "<group>"; };
+		B4FF95B316EBE91300CBFA00 /* SplashScreen-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SplashScreen-hd.png"; sourceTree = "<group>"; };
+		B4FF95B416EBE91300CBFA00 /* SplashScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SplashScreen.png; sourceTree = "<group>"; };
+		B4FF95B716EBEE7300CBFA00 /* StoryPointBackground-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StoryPointBackground-hd.png"; sourceTree = "<group>"; };
+		B4FF95B816EBEE7300CBFA00 /* StoryPointBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StoryPointBackground.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -606,6 +616,7 @@
 		B48564D416D33CA100B5E608 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B4FF95B116EBE7A100CBFA00 /* Mathlete-Bulky.ttf */,
 				B48564D516D33CA100B5E608 /* Default.png */,
 				B48564D716D33CA100B5E608 /* Default-Landscape~ipad.png */,
 				B48564D916D33CA100B5E608 /* fps_images.png */,
@@ -969,12 +980,14 @@
 		B4A2772216E6708C00B252B8 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B4FF95B716EBEE7300CBFA00 /* StoryPointBackground-hd.png */,
+				B4FF95B816EBEE7300CBFA00 /* StoryPointBackground.png */,
+				B4FF95B316EBE91300CBFA00 /* SplashScreen-hd.png */,
+				B4FF95B416EBE91300CBFA00 /* SplashScreen.png */,
+				B4FF95A516EBE42500CBFA00 /* GameplayBackground-hd.png */,
+				B4FF95A616EBE42500CBFA00 /* GameplayBackground.png */,
 				B4A2773F16E9720300B252B8 /* Cards */,
 				B4A2773B16E670B200B252B8 /* Portraits */,
-				B4A2772A16E670A800B252B8 /* jail.png */,
-				B4A2772B16E670A800B252B8 /* SplashScreen-hd.png */,
-				B4A2772C16E670A800B252B8 /* SplashScreen.png */,
-				B4A2772916E670A800B252B8 /* jail-hd.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -982,6 +995,8 @@
 		B4A2773B16E670B200B252B8 /* Portraits */ = {
 			isa = PBXGroup;
 			children = (
+				B4A2772A16E670A800B252B8 /* jail.png */,
+				B4A2772916E670A800B252B8 /* jail-hd.png */,
 				B4A2772316E670A800B252B8 /* ada-portrait-hd.png */,
 				B4A2772416E670A800B252B8 /* ada-portrait.png */,
 				B4A2772516E670A800B252B8 /* babbage-portrait-hd.png */,
@@ -1093,8 +1108,6 @@
 				B4A2773416E670A800B252B8 /* hopper-portrait.png in Resources */,
 				B4A2773516E670A800B252B8 /* jail-hd.png in Resources */,
 				B4A2773616E670A800B252B8 /* jail.png in Resources */,
-				B4A2773716E670A800B252B8 /* SplashScreen-hd.png in Resources */,
-				B4A2773816E670A800B252B8 /* SplashScreen.png in Resources */,
 				B4A2773916E670A800B252B8 /* turing-portrait-hd.png in Resources */,
 				B4A2773A16E670A800B252B8 /* turing-portrait.png in Resources */,
 				B4A2774416E9720F00B252B8 /* 16card-hd.png in Resources */,
@@ -1117,6 +1130,13 @@
 				B4A2776516E9745D00B252B8 /* 8card-hd.png in Resources */,
 				B4A2776616E9745D00B252B8 /* 8cardselected.png in Resources */,
 				B4A2776716E9745D00B252B8 /* 8cardselected-hd.png in Resources */,
+				B4FF95A716EBE42500CBFA00 /* GameplayBackground-hd.png in Resources */,
+				B4FF95A816EBE42500CBFA00 /* GameplayBackground.png in Resources */,
+				B4FF95B216EBE7A100CBFA00 /* Mathlete-Bulky.ttf in Resources */,
+				B4FF95B516EBE91300CBFA00 /* SplashScreen-hd.png in Resources */,
+				B4FF95B616EBE91300CBFA00 /* SplashScreen.png in Resources */,
+				B4FF95B916EBEE7300CBFA00 /* StoryPointBackground-hd.png in Resources */,
+				B4FF95BA16EBEE7300CBFA00 /* StoryPointBackground.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
