@@ -85,7 +85,7 @@
 		[self addChild:menu];
 		
 		for(int i = 0; i < NUM_OF_CARDS; i++) {
-			cards[i] = NO;
+			cardSelected[i] = NO;
 			CCSprite *offButton = [CCSprite spriteWithFile:@"button-off.png"];
 			CCSprite *onButton = [CCSprite spriteWithFile:@"button-on.png"];
 			offButtons[i] = offButton;
@@ -114,9 +114,9 @@
 		}
 	}
 	
-	cards[cardIndex] = !cards[cardIndex];
+	cardSelected[cardIndex] = !cardSelected[cardIndex];
 	
-	if(cards[cardIndex]) {
+	if(cardSelected[cardIndex]) {
 		selectedTotal += (1 << cardIndex);
 		[onButtons[NUM_OF_CARDS-1-cardIndex] runAction:[CCFadeIn actionWithDuration:0.1]];
 	} else {
