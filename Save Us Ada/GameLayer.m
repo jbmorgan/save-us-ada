@@ -59,9 +59,17 @@
 		// Leaderboards and Achievements
 		//
 		
-		
+		//schedules [self Update:dt] to run every 1/60th second
+		[self schedule:@selector(Update:)];
 	}
 	return self;
+}
+
+-(void)Update:(ccTime)dt
+{
+    if(![[CCDirector sharedDirector] isPaused]) {
+		[dialogueQueue Update:dt];
+	}
 }
 
 -(void)advanceToStoryPoint:(StoryPoint)storyPoint {

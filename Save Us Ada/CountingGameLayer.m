@@ -119,7 +119,8 @@
 			targetTotal = arc4random() % 32;
 		}
 		
-		[dialogueQueue enqueue:[NSString stringWithFormat:@"Good job! Can you make %i?", targetTotal]];
+		[dialogueQueue enqueue:@"Good job!"];
+		[dialogueQueue enqueue:[NSString stringWithFormat:@"Can you make %i?", targetTotal]];
 	}
 		
 }

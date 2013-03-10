@@ -141,7 +141,6 @@
 		B485664516D33CA200B5E608 /* vec4.c in Sources */ = {isa = PBXBuildFile; fileRef = B485664416D33CA200B5E608 /* vec4.c */; };
 		B485664A16D33CA200B5E608 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B485664916D33CA200B5E608 /* main.m */; };
 		B485664D16D33CA200B5E608 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B485664C16D33CA200B5E608 /* AppDelegate.m */; };
-		B485665016D33CA200B5E608 /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B485664F16D33CA200B5E608 /* HelloWorldLayer.m */; };
 		B485665316D33CA200B5E608 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B485665216D33CA200B5E608 /* IntroLayer.m */; };
 		B485665A16D33CB600B5E608 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B485665916D33CB600B5E608 /* README.md */; };
 		B4A2772F16E670A800B252B8 /* ada-portrait-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B4A2772316E670A800B252B8 /* ada-portrait-hd.png */; };
@@ -468,8 +467,6 @@
 		B485664916D33CA200B5E608 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B485664B16D33CA200B5E608 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B485664C16D33CA200B5E608 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B485664E16D33CA200B5E608 /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
-		B485664F16D33CA200B5E608 /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
 		B485665116D33CA200B5E608 /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
 		B485665216D33CA200B5E608 /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
 		B485665916D33CB600B5E608 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
@@ -546,16 +543,18 @@
 			children = (
 				6B217C7E16DD071C005FBEA6 /* CountingGameLayer.h */,
 				6B217C7F16DD071C005FBEA6 /* CountingGameLayer.m */,
-				6B217C8216DD0744005FBEA6 /* WordGameLayer.h */,
-				6B217C8316DD0744005FBEA6 /* WordGameLayer.m */,
-				6B217C8516DD075E005FBEA6 /* ImageGameLayer.h */,
-				6B217C8616DD075E005FBEA6 /* ImageGameLayer.m */,
-				6B217C8816DD077A005FBEA6 /* StoryPointLayer.h */,
-				6B217C8916DD077A005FBEA6 /* StoryPointLayer.m */,
-				B4A2773C16E6727800B252B8 /* MainMenuScreenLayer.h */,
-				B4A2773D16E6727800B252B8 /* MainMenuScreenLayer.m */,
 				B465356616ED418A00CDEBED /* GameLayer.h */,
 				B465356716ED418A00CDEBED /* GameLayer.m */,
+				6B217C8516DD075E005FBEA6 /* ImageGameLayer.h */,
+				6B217C8616DD075E005FBEA6 /* ImageGameLayer.m */,
+				B485665116D33CA200B5E608 /* IntroLayer.h */,
+				B485665216D33CA200B5E608 /* IntroLayer.m */,
+				B4A2773C16E6727800B252B8 /* MainMenuScreenLayer.h */,
+				B4A2773D16E6727800B252B8 /* MainMenuScreenLayer.m */,
+				6B217C8816DD077A005FBEA6 /* StoryPointLayer.h */,
+				6B217C8916DD077A005FBEA6 /* StoryPointLayer.m */,
+				6B217C8216DD0744005FBEA6 /* WordGameLayer.h */,
+				6B217C8316DD0744005FBEA6 /* WordGameLayer.m */,
 			);
 			name = Layers;
 			sourceTree = "<group>";
@@ -617,17 +616,13 @@
 			isa = PBXGroup;
 			children = (
 				B4FF95C616EC0E5200CBFA00 /* Save Us Ada.entitlements */,
-				B4A2772216E6708C00B252B8 /* Images */,
-				6B217C8116DD0726005FBEA6 /* Layers */,
-				6B217C9116DD07AD005FBEA6 /* Game Classes */,
 				B485664B16D33CA200B5E608 /* AppDelegate.h */,
 				B485664C16D33CA200B5E608 /* AppDelegate.m */,
-				B485664E16D33CA200B5E608 /* HelloWorldLayer.h */,
-				B485664F16D33CA200B5E608 /* HelloWorldLayer.m */,
-				B485665116D33CA200B5E608 /* IntroLayer.h */,
-				B485665216D33CA200B5E608 /* IntroLayer.m */,
-				B48564D416D33CA100B5E608 /* Resources */,
+				6B217C9116DD07AD005FBEA6 /* Game Classes */,
+				B4A2772216E6708C00B252B8 /* Images */,
+				6B217C8116DD0726005FBEA6 /* Layers */,
 				B48564EE16D33CA100B5E608 /* libs */,
+				B48564D416D33CA100B5E608 /* Resources */,
 				B485664716D33CA200B5E608 /* Supporting Files */,
 			);
 			path = "Save Us Ada";
@@ -636,20 +631,20 @@
 		B48564D416D33CA100B5E608 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B4FF95B116EBE7A100CBFA00 /* Mathlete-Bulky.ttf */,
-				B48564D516D33CA100B5E608 /* Default.png */,
+				B48564EC16D33CA100B5E608 /* iTunesArtwork */,
+				B48564EB16D33CA100B5E608 /* Info.plist */,
 				B48564D716D33CA100B5E608 /* Default-Landscape~ipad.png */,
-				B48564D916D33CA100B5E608 /* fps_images.png */,
+				B48564D516D33CA100B5E608 /* Default.png */,
 				B48564DB16D33CA100B5E608 /* fps_images-hd.png */,
 				B48564DD16D33CA100B5E608 /* fps_images-ipadhd.png */,
+				B48564D916D33CA100B5E608 /* fps_images.png */,
 				B48564DF16D33CA100B5E608 /* Icon-72.png */,
 				B48564E116D33CA100B5E608 /* Icon-Small-50.png */,
 				B48564E316D33CA100B5E608 /* Icon-Small.png */,
 				B48564E516D33CA100B5E608 /* Icon-Small@2x.png */,
 				B48564E716D33CA100B5E608 /* Icon.png */,
 				B48564E916D33CA100B5E608 /* Icon@2x.png */,
-				B48564EB16D33CA100B5E608 /* Info.plist */,
-				B48564EC16D33CA100B5E608 /* iTunesArtwork */,
+				B4FF95B116EBE7A100CBFA00 /* Mathlete-Bulky.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1000,12 +995,12 @@
 		B4A2772216E6708C00B252B8 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				B4FF95B716EBEE7300CBFA00 /* StoryPointBackground-hd.png */,
-				B4FF95B816EBEE7300CBFA00 /* StoryPointBackground.png */,
-				B4FF95B316EBE91300CBFA00 /* SplashScreen-hd.png */,
-				B4FF95B416EBE91300CBFA00 /* SplashScreen.png */,
 				B4FF95A516EBE42500CBFA00 /* GameplayBackground-hd.png */,
 				B4FF95A616EBE42500CBFA00 /* GameplayBackground.png */,
+				B4FF95B316EBE91300CBFA00 /* SplashScreen-hd.png */,
+				B4FF95B416EBE91300CBFA00 /* SplashScreen.png */,
+				B4FF95B716EBEE7300CBFA00 /* StoryPointBackground-hd.png */,
+				B4FF95B816EBEE7300CBFA00 /* StoryPointBackground.png */,
 				B4A2773F16E9720300B252B8 /* Cards */,
 				B4A2773B16E670B200B252B8 /* Portraits */,
 			);
@@ -1015,14 +1010,14 @@
 		B4A2773B16E670B200B252B8 /* Portraits */ = {
 			isa = PBXGroup;
 			children = (
-				B4A2772A16E670A800B252B8 /* jail.png */,
-				B4A2772916E670A800B252B8 /* jail-hd.png */,
 				B4A2772316E670A800B252B8 /* ada-portrait-hd.png */,
 				B4A2772416E670A800B252B8 /* ada-portrait.png */,
 				B4A2772516E670A800B252B8 /* babbage-portrait-hd.png */,
 				B4A2772616E670A800B252B8 /* babbage-portrait.png */,
 				B4A2772716E670A800B252B8 /* hopper-portrait-hd.png */,
 				B4A2772816E670A800B252B8 /* hopper-portrait.png */,
+				B4A2772916E670A800B252B8 /* jail-hd.png */,
+				B4A2772A16E670A800B252B8 /* jail.png */,
 				B4A2772D16E670A800B252B8 /* turing-portrait-hd.png */,
 				B4A2772E16E670A800B252B8 /* turing-portrait.png */,
 			);
@@ -1032,30 +1027,30 @@
 		B4A2773F16E9720300B252B8 /* Cards */ = {
 			isa = PBXGroup;
 			children = (
-				B4FF95BE16EC017F00CBFA00 /* button-off-hd.png */,
-				B4FF95BF16EC017F00CBFA00 /* button-off.png */,
-				B4FF95C016EC017F00CBFA00 /* button-on-hd.png */,
-				B4FF95C116EC017F00CBFA00 /* button-on.png */,
-				B4A2774816E9745D00B252B8 /* 1cardselected.png */,
-				B4A2774916E9745D00B252B8 /* 1cardselected-hd.png */,
-				B4A2774A16E9745D00B252B8 /* 1card.png */,
-				B4A2774B16E9745D00B252B8 /* 1card-hd.png */,
-				B4A2774C16E9745D00B252B8 /* 2card.png */,
-				B4A2774D16E9745D00B252B8 /* 2card-hd.png */,
-				B4A2774E16E9745D00B252B8 /* 2cardselected.png */,
-				B4A2774F16E9745D00B252B8 /* 2cardselected-hd.png */,
-				B4A2775016E9745D00B252B8 /* 4cardselected.png */,
-				B4A2775116E9745D00B252B8 /* 4cardselected-hd.png */,
-				B4A2775216E9745D00B252B8 /* 4card.png */,
-				B4A2775316E9745D00B252B8 /* 4card-hd.png */,
-				B4A2775416E9745D00B252B8 /* 8card.png */,
-				B4A2775516E9745D00B252B8 /* 8card-hd.png */,
-				B4A2775616E9745D00B252B8 /* 8cardselected.png */,
-				B4A2775716E9745D00B252B8 /* 8cardselected-hd.png */,
 				B4A2774016E9720F00B252B8 /* 16card-hd.png */,
 				B4A2774116E9720F00B252B8 /* 16card.png */,
 				B4A2774216E9720F00B252B8 /* 16cardselected-hd.png */,
 				B4A2774316E9720F00B252B8 /* 16cardselected.png */,
+				B4A2774B16E9745D00B252B8 /* 1card-hd.png */,
+				B4A2774A16E9745D00B252B8 /* 1card.png */,
+				B4A2774916E9745D00B252B8 /* 1cardselected-hd.png */,
+				B4A2774816E9745D00B252B8 /* 1cardselected.png */,
+				B4A2774D16E9745D00B252B8 /* 2card-hd.png */,
+				B4A2774C16E9745D00B252B8 /* 2card.png */,
+				B4A2774F16E9745D00B252B8 /* 2cardselected-hd.png */,
+				B4A2774E16E9745D00B252B8 /* 2cardselected.png */,
+				B4A2775316E9745D00B252B8 /* 4card-hd.png */,
+				B4A2775216E9745D00B252B8 /* 4card.png */,
+				B4A2775116E9745D00B252B8 /* 4cardselected-hd.png */,
+				B4A2775016E9745D00B252B8 /* 4cardselected.png */,
+				B4A2775516E9745D00B252B8 /* 8card-hd.png */,
+				B4A2775416E9745D00B252B8 /* 8card.png */,
+				B4A2775716E9745D00B252B8 /* 8cardselected-hd.png */,
+				B4A2775616E9745D00B252B8 /* 8cardselected.png */,
+				B4FF95BE16EC017F00CBFA00 /* button-off-hd.png */,
+				B4FF95BF16EC017F00CBFA00 /* button-off.png */,
+				B4FF95C016EC017F00CBFA00 /* button-on-hd.png */,
+				B4FF95C116EC017F00CBFA00 /* button-on.png */,
 			);
 			name = Cards;
 			sourceTree = "<group>";
@@ -1277,7 +1272,6 @@
 				B485664516D33CA200B5E608 /* vec4.c in Sources */,
 				B485664A16D33CA200B5E608 /* main.m in Sources */,
 				B485664D16D33CA200B5E608 /* AppDelegate.m in Sources */,
-				B485665016D33CA200B5E608 /* HelloWorldLayer.m in Sources */,
 				B485665316D33CA200B5E608 /* IntroLayer.m in Sources */,
 				6B217C8016DD071C005FBEA6 /* CountingGameLayer.m in Sources */,
 				6B217C8416DD0744005FBEA6 /* WordGameLayer.m in Sources */,

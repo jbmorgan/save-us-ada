@@ -19,4 +19,6 @@
 // returns a CCScene that contains the GameLayer as the only child
 +(CCScene *) scene;
 
+-(void)Update:(ccTime)dt;
+
 @end

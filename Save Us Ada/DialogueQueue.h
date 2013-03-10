@@ -11,8 +11,12 @@
 
 @interface DialogueQueue : CCNode {
 	int maxLength;
+	NSMutableArray *messageQueue;
 	NSMutableArray *messages;
+	ccTime timeSinceLastMessageDisplayed;
 }
+
+-(void)Update:(ccTime)dt;
 
 -(id)initWithLength:(int)length;
 -(void)enqueue:(NSString *)message;
