@@ -7,6 +7,8 @@
 //
 
 #import "CountingGameLayer.h"
+#import "StoryPointLayer.h"
+#import "GameStateManager.h"
 #import "TalkingHead.h"
 #import "DialogueQueue.h"
 
@@ -134,6 +136,11 @@
 		[dialogueQueue enqueue:[NSString stringWithFormat:@"Good job! Can you make %i?", targetTotal]];
 	}
 		
+}
+
+-(void)advanceToNextStoryPoint {
+	[GameStateManager instance].storyPoint = kHopper;
+	[[CCDirector sharedDirector] replaceScene:[StoryPointLayer scene]];
 }
 
 // on "dealloc" you need to release all your retained objects

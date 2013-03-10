@@ -31,4 +31,5 @@
 +(CCScene *) scene;
 
 -(void)cardPressed:(id)sender;
+-(void)advanceToNextStoryPoint;
 @end

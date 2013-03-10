@@ -9,8 +9,15 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
+@class TalkingHead, DialogueQueue;
+
 @interface WordGameLayer : CCLayer {
-    
+   	TalkingHead	*ada;
+	DialogueQueue *dialogueQueue;
 }
+
+// returns a CCScene that contains the CountingGameLayer as the only child
++(CCScene *) scene;
+-(void)advanceToNextStoryPoint;
 
 @end

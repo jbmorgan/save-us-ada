@@ -12,7 +12,8 @@
 typedef enum StoryPoint {
 	kBabbage,
 	kHopper,
-	kTuring
+	kTuring,
+	kEnd
 } StoryPoint;
 
 @interface GameStateManager : NSObject {
