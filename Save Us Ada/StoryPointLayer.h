@@ -16,6 +16,8 @@
 	
 	TalkingHead *ada,
 				*prisoner;
+	
+	CCScene *gameplayScene;
 }
 
 // returns a CCScene that contains the StoryPointLayer as the only child

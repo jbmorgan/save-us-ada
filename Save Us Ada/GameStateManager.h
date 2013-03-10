@@ -9,10 +9,17 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
+typedef enum StoryPoint {
+	kBabbage,
+	kHopper,
+	kTuring
+} StoryPoint;
+
 @interface GameStateManager : NSObject {
     
 }
 
+@property StoryPoint storyPoint;
 +(GameStateManager *)instance;
 
 @end

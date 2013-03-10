@@ -17,6 +17,7 @@ static GameStateManager *_gameStateManager = nil;
 +(GameStateManager *)instance {
 	if(!_gameStateManager) {
 		_gameStateManager = [[self alloc] init];
+		_gameStateManager.storyPoint = kBabbage;
 	}
 	
 	return _gameStateManager;

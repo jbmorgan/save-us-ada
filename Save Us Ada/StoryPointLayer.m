@@ -8,6 +8,7 @@
 
 #import "StoryPointLayer.h"
 #import "CountingGameLayer.h"
+#import "GameStateManager.h"
 #import "TalkingHead.h"
 
 @implementation StoryPointLayer
@@ -36,14 +37,44 @@
 	if( (self=[super init]) ) {
 		
 		ada = [[TalkingHead alloc] initWithSpriteNamed:@"ada-portrait.png"];
-		prisoner = [[TalkingHead alloc] initWithSpriteNamed:@"babbage-portrait.png"];
+		
+		NSString *prisonerImage = nil;
+		NSString *storyText = nil;
+		gameplayScene = nil;
+		
+		switch ([GameStateManager instance].storyPoint) {
+			case kBabbage:
+				prisonerImage = @"babbage-portrait.png";
+				storyText = @"Oh noes, Charles Babbage has been kidnapped again!! Solve this puzzle to save him!";
+				gameplayScene = [CountingGameLayer scene];
+				break;
+				
+			case kHopper:
+				prisonerImage = @"hopper-portrait.png";
+				storyText = @"Oh noes, Grace Hopper has been kidnapped again!! Solve this puzzle to save her!";
+				gameplayScene = [CountingGameLayer scene];
+				break;
+				
+			case kTuring:
+				prisonerImage = @"turing-portrait.png";
+				storyText = @"Oh noes, Alan Turing has been kidnapped again!! Solve this puzzle to save him!";
+				gameplayScene = [CountingGameLayer scene];
+				break;
+				
+			default:
+				break;
+		}
+		
+		[gameplayScene retain];
+		
+		prisoner = [[TalkingHead alloc] initWithSpriteNamed:prisonerImage];
 		prisoner.position = ccp(1024-prisoner.position.x, prisoner.position.y);
 		
 		CCSprite *prison = [CCSprite spriteWithFile:@"jail.png"];
 		prison.position = prisoner.position;
 		
 		// create and initialize a Label
-		CCLabelTTF *messageLabel = [CCLabelTTF labelWithString:@"Oh noes, Charles Babbage has been kidnapped again!! Solve this puzzle to save him!" dimensions:CGSizeMake(600.0f, 400.0f) hAlignment:kCCTextAlignmentLeft fontName:@"Mathlete-Bulky" fontSize:64];
+		CCLabelTTF *messageLabel = [CCLabelTTF labelWithString:storyText dimensions:CGSizeMake(600.0f, 400.0f) hAlignment:kCCTextAlignmentLeft fontName:@"Mathlete-Bulky" fontSize:64];
 		
 		backgroundImage = [CCSprite spriteWithFile:@"StoryPointBackground.png"];
 		
@@ -94,7 +125,7 @@
      */
 	NSLog(@"Touch Ended");
 	[[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
-	[[CCDirector sharedDirector] replaceScene:[CountingGameLayer scene]];
+	[[CCDirector sharedDirector] replaceScene:gameplayScene];
 }
 
 // on "dealloc" you need to release all your retained objects
