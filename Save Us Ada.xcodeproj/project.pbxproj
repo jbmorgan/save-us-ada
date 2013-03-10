@@ -515,6 +515,7 @@
 		B4FF95BF16EC017F00CBFA00 /* button-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-off.png"; sourceTree = "<group>"; };
 		B4FF95C016EC017F00CBFA00 /* button-on-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-on-hd.png"; sourceTree = "<group>"; };
 		B4FF95C116EC017F00CBFA00 /* button-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-on.png"; sourceTree = "<group>"; };
+		B4FF95C616EC0E5200CBFA00 /* Save Us Ada.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Save Us Ada.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -610,6 +611,7 @@
 		B48564D316D33CA000B5E608 /* Save Us Ada */ = {
 			isa = PBXGroup;
 			children = (
+				B4FF95C616EC0E5200CBFA00 /* Save Us Ada.entitlements */,
 				B4A2772216E6708C00B252B8 /* Images */,
 				6B217C8116DD0726005FBEA6 /* Layers */,
 				6B217C9116DD07AD005FBEA6 /* Game Classes */,
@@ -1333,6 +1335,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = "Save Us Ada/Save Us Ada.entitlements";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1354,6 +1357,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = "Save Us Ada/Save Us Ada.entitlements";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Save Us Ada/Prefix.pch";
