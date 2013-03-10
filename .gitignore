@@ -3,7 +3,7 @@
 
 # XCode stuff
 *.xcworkspacedata
-*.xcuserstate
+UserInterfaceState.xcuserstate
 *.xcscheme
 *.xcbkptlist
 xcschememanagement.plist
