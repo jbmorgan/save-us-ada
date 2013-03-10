@@ -16,7 +16,7 @@
 
 @implementation CountingGameLayer
 
-// Helper class method that creates a Scene with the HelloWorldLayer as the only child.
+// Helper class method that creates a Scene with the CountingGameLayer as the only child.
 +(CCScene *) scene
 {
 	// 'scene' is an autorelease object.
@@ -41,33 +41,19 @@
 		
 		selectedTotal = 0;
 		targetTotal = (arc4random() % 31) + 1;
-				
-		ada = [[TalkingHead alloc] initWithSpriteNamed:@"ada-portrait.png"];
-		dialogueQueue = [[DialogueQueue alloc] initWithLength:9];
 		
 		// create and initialize a Label
-		selectedTotalLabel = [CCLabelTTF labelWithString:@"0" dimensions:CGSizeMake(200.0f, 100.0f) hAlignment:kCCTextAlignmentRight fontName:@"Mathlete-Bulky" fontSize:64];
-		
-		CCSprite *backgroundImage = [CCSprite spriteWithFile:@"GameplayBackground.png"];
-		
+		selectedTotalLabel = [CCLabelTTF labelWithString:@"0" dimensions:CGSizeMake(150.0f, 150.0f) hAlignment:kCCTextAlignmentCenter fontName:@"Mathlete-Bulky" fontSize:128];
+				
 		// ask director for the window size
 		CGSize size = [[CCDirector sharedDirector] winSize];
-		CGPoint center = ccp( size.width /2 , size.height/2 );
-		
+//		CGPoint center = ccp( size.width /2 , size.height/2 );
 		
 		// position the label on the center of the screen
-		selectedTotalLabel.position =  ccp(1024 - 140,40);
-		backgroundImage.position = center;
+		selectedTotalLabel.position =  ccp(644, 150);
 		
 		// add the label as a child to this Layer
-		[self addChild:backgroundImage];
 		[self addChild: selectedTotalLabel];
-		[self addChild: ada];
-		[self addChild: dialogueQueue];
-		
-		//
-		// Leaderboards and Achievements
-		//
 		
 		// Default font size will be 28 points.
 		[CCMenuItemFont setFontSize:28];
@@ -81,7 +67,7 @@
 		CCMenu *menu = [CCMenu menuWithItems:cardMenuItems[4], cardMenuItems[3], cardMenuItems[2], cardMenuItems[1], cardMenuItems[0], nil];
 		
 		[menu alignItemsHorizontallyWithPadding:20];
-		[menu setPosition:ccp( 644, size.height/2 + 50)];
+		[menu setPosition:ccp(644, size.height/2 + 50)];
 		
 		// Add the menu to the layer
 		[self addChild:menu];
@@ -136,11 +122,6 @@
 		[dialogueQueue enqueue:[NSString stringWithFormat:@"Good job! Can you make %i?", targetTotal]];
 	}
 		
-}
-
--(void)advanceToNextStoryPoint {
-	[GameStateManager instance].storyPoint = kHopper;
-	[[CCDirector sharedDirector] replaceScene:[StoryPointLayer scene]];
 }
 
 // on "dealloc" you need to release all your retained objects

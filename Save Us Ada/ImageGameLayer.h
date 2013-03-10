@@ -8,17 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "GameLayer.h"
 
-@class TalkingHead, DialogueQueue;
+@class TalkingHead, DialogueQueue, ImageGrid;
 
-@interface ImageGameLayer : CCLayer {
-	TalkingHead	*ada;
-	DialogueQueue *dialogueQueue;
+@interface ImageGameLayer : GameLayer {
+	ImageGrid *imageGrid;
 }
 
-// returns a CCScene that contains the CountingGameLayer as the only child
-+(CCScene *) scene;
--(void)advanceToNextStoryPoint;
 -(void)gridCellPressed:(id)sender;
 
 @end

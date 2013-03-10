@@ -8,16 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "GameLayer.h"
 
 @class TalkingHead, DialogueQueue;
 
-@interface WordGameLayer : CCLayer {
-   	TalkingHead	*ada;
-	DialogueQueue *dialogueQueue;
-}
+@interface WordGameLayer : GameLayer {
 
-// returns a CCScene that contains the CountingGameLayer as the only child
-+(CCScene *) scene;
--(void)advanceToNextStoryPoint;
+}
 
 @end

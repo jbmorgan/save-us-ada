@@ -16,6 +16,7 @@
 		6B217C9716DD07DA005FBEA6 /* ImageGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B217C9616DD07DA005FBEA6 /* ImageGrid.m */; };
 		6B217C9A16DD07E8005FBEA6 /* ImageGridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B217C9916DD07E8005FBEA6 /* ImageGridCell.m */; };
 		6B217C9D16DD0CBC005FBEA6 /* GameStateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B217C9C16DD0CBC005FBEA6 /* GameStateManager.m */; };
+		B465356816ED418B00CDEBED /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B465356716ED418A00CDEBED /* GameLayer.m */; };
 		B48564C216D33CA000B5E608 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B48564C116D33CA000B5E608 /* QuartzCore.framework */; };
 		B48564C416D33CA000B5E608 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B48564C316D33CA000B5E608 /* OpenGLES.framework */; };
 		B48564C616D33CA000B5E608 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B48564C516D33CA000B5E608 /* OpenAL.framework */; };
@@ -207,6 +208,8 @@
 		6B217C9916DD07E8005FBEA6 /* ImageGridCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageGridCell.m; sourceTree = "<group>"; };
 		6B217C9B16DD0CBC005FBEA6 /* GameStateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStateManager.h; sourceTree = "<group>"; };
 		6B217C9C16DD0CBC005FBEA6 /* GameStateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameStateManager.m; sourceTree = "<group>"; };
+		B465356616ED418A00CDEBED /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
+		B465356716ED418A00CDEBED /* GameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
 		B48564BE16D33CA000B5E608 /* Save Us Ada.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Save Us Ada.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B48564C116D33CA000B5E608 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B48564C316D33CA000B5E608 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -551,6 +554,8 @@
 				6B217C8916DD077A005FBEA6 /* StoryPointLayer.m */,
 				B4A2773C16E6727800B252B8 /* MainMenuScreenLayer.h */,
 				B4A2773D16E6727800B252B8 /* MainMenuScreenLayer.m */,
+				B465356616ED418A00CDEBED /* GameLayer.h */,
+				B465356716ED418A00CDEBED /* GameLayer.m */,
 			);
 			name = Layers;
 			sourceTree = "<group>";
@@ -1285,6 +1290,7 @@
 				6B217C9D16DD0CBC005FBEA6 /* GameStateManager.m in Sources */,
 				B4A2773E16E6727800B252B8 /* MainMenuScreenLayer.m in Sources */,
 				B4FF95BD16EBF3CE00CBFA00 /* DialogueQueue.m in Sources */,
+				B465356816ED418B00CDEBED /* GameLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

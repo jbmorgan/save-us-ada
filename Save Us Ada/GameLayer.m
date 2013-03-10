@@ -1,27 +1,27 @@
 //
-//  ImageGameLayer.m
+//  GameLayer.m
 //  Save Us Ada
 //
-//  Created by Jonathan Morgan on 2/26/13.
+//  Created by Jon Morgan on 3/10/13.
 //  Copyright 2013 __MyCompanyName__. All rights reserved.
 //
 
-#import "ImageGameLayer.h"
+#import "GameLayer.h"
 #import "StoryPointLayer.h"
 #import "GameStateManager.h"
 #import "TalkingHead.h"
 #import "DialogueQueue.h"
 
-@implementation ImageGameLayer
+@implementation GameLayer
 
-// Helper class method that creates a Scene with the HelloWorldLayer as the only child.
+// Helper class method that creates a Scene with the CountingGameLayer as the only child.
 +(CCScene *) scene
 {
 	// 'scene' is an autorelease object.
 	CCScene *scene = [CCScene node];
 	
 	// 'layer' is an autorelease object.
-	ImageGameLayer *layer = [ImageGameLayer node];
+	GameLayer *layer = [GameLayer node];
 	
 	// add layer as a child to scene
 	[scene addChild: layer];
@@ -37,17 +37,36 @@
 	// Apple recommends to re-assign "self" with the "super's" return value
 	if( (self=[super init]) ) {
 		
+		ada = [[TalkingHead alloc] initWithSpriteNamed:@"ada-portrait.png"];
+		dialogueQueue = [[DialogueQueue alloc] initWithLength:9];
+		
+		CCSprite *backgroundImage = [CCSprite spriteWithFile:@"GameplayBackground.png"];
+		
 		// ask director for the window size
-//		CGSize size = [[CCDirector sharedDirector] winSize];
-//		CGPoint center = ccp( size.width /2 , size.height/2 );
-				
-		[dialogueQueue enqueue:[NSString stringWithFormat:@"Picture. Picture.", nil]];
+		CGSize size = [[CCDirector sharedDirector] winSize];
+		CGPoint center = ccp( size.width /2 , size.height/2 );
+		
+		
+		// position the label on the center of the screen
+		backgroundImage.position = center;
+		
+		// add the label as a child to this Layer
+		[self addChild:backgroundImage];
+		[self addChild: ada];
+		[self addChild: dialogueQueue];
+		
+		//
+		// Leaderboards and Achievements
+		//
+		
+		
 	}
 	return self;
 }
 
--(void)gridCellPressed:(id)sender {
-	NSLog(@"Grid cell pressed!");
+-(void)advanceToStoryPoint:(StoryPoint)storyPoint {
+	[GameStateManager instance].storyPoint = storyPoint;
+	[[CCDirector sharedDirector] replaceScene:[StoryPointLayer scene]];
 }
 
 // on "dealloc" you need to release all your retained objects

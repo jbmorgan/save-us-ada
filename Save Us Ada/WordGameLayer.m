@@ -37,39 +37,13 @@
 	// always call "super" init
 	// Apple recommends to re-assign "self" with the "super's" return value
 	if( (self=[super init]) ) {
-
-		
-		ada = [[TalkingHead alloc] initWithSpriteNamed:@"ada-portrait.png"];
-		dialogueQueue = [[DialogueQueue alloc] initWithLength:9];
-		
-		CCSprite *backgroundImage = [CCSprite spriteWithFile:@"GameplayBackground.png"];
-		
 		// ask director for the window size
-		CGSize size = [[CCDirector sharedDirector] winSize];
-		CGPoint center = ccp( size.width /2 , size.height/2 );
-		
-		
-		// position the label on the center of the screen
-		backgroundImage.position = center;
-		
-		// add the label as a child to this Layer
-		[self addChild:backgroundImage];
-		[self addChild: ada];
-		[self addChild: dialogueQueue];
-		
-		//
-		// Leaderboards and Achievements
-		//
+//		CGSize size = [[CCDirector sharedDirector] winSize];
+//		CGPoint center = ccp( size.width /2 , size.height/2 );
 		
 		[dialogueQueue enqueue:[NSString stringWithFormat:@"Words??", nil]];
-		
 	}
 	return self;
-}
-
--(void)advanceToNextStoryPoint {
-	[GameStateManager instance].storyPoint = kEnd;
-	[[CCDirector sharedDirector] replaceScene:[StoryPointLayer scene]];
 }
 
 // on "dealloc" you need to release all your retained objects

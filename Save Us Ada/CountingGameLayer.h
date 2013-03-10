@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "GameLayer.h"
 
 @class TalkingHead, DialogueQueue;
 
-@interface CountingGameLayer : CCLayer {
+@interface CountingGameLayer : GameLayer {
     int selectedTotal;
     int targetTotal;
 
@@ -21,15 +22,8 @@
 	CCMenuItem *cardMenuItems[5];
 	CCSprite *offButtons[5];
 	CCSprite *onButtons[5];
-	
-	TalkingHead	*ada;
-	DialogueQueue *dialogueQueue;
-	
 }
 
-// returns a CCScene that contains the CountingGameLayer as the only child
-+(CCScene *) scene;
-
 -(void)cardPressed:(id)sender;
--(void)advanceToNextStoryPoint;
+
 @end
