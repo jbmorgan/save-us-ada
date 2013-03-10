@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@class TalkingHead;
+@class TalkingHead, DialogueQueue;
 
 @interface CountingGameLayer : CCLayer {
     int selectedTotal;
@@ -20,10 +20,13 @@
 				*twoCard,
 				*oneCard;
 	CCLabelTTF	*selectedTotalLabel;
-	CCLabelTTF	*targetTotalLabel;
+
 	BOOL cards[5];
+	CCSprite *offButtons[5];
+	CCSprite *onButtons[5];
 	
 	TalkingHead	*ada;
+	DialogueQueue *dialogueQueue;
 	
 }
 

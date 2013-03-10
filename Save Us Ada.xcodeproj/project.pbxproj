@@ -181,6 +181,11 @@
 		B4FF95B616EBE91300CBFA00 /* SplashScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = B4FF95B416EBE91300CBFA00 /* SplashScreen.png */; };
 		B4FF95B916EBEE7300CBFA00 /* StoryPointBackground-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B4FF95B716EBEE7300CBFA00 /* StoryPointBackground-hd.png */; };
 		B4FF95BA16EBEE7300CBFA00 /* StoryPointBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = B4FF95B816EBEE7300CBFA00 /* StoryPointBackground.png */; };
+		B4FF95BD16EBF3CE00CBFA00 /* DialogueQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B4FF95BC16EBF3CE00CBFA00 /* DialogueQueue.m */; };
+		B4FF95C216EC017F00CBFA00 /* button-off-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B4FF95BE16EC017F00CBFA00 /* button-off-hd.png */; };
+		B4FF95C316EC017F00CBFA00 /* button-off.png in Resources */ = {isa = PBXBuildFile; fileRef = B4FF95BF16EC017F00CBFA00 /* button-off.png */; };
+		B4FF95C416EC017F00CBFA00 /* button-on-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B4FF95C016EC017F00CBFA00 /* button-on-hd.png */; };
+		B4FF95C516EC017F00CBFA00 /* button-on.png in Resources */ = {isa = PBXBuildFile; fileRef = B4FF95C116EC017F00CBFA00 /* button-on.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -504,6 +509,12 @@
 		B4FF95B416EBE91300CBFA00 /* SplashScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SplashScreen.png; sourceTree = "<group>"; };
 		B4FF95B716EBEE7300CBFA00 /* StoryPointBackground-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StoryPointBackground-hd.png"; sourceTree = "<group>"; };
 		B4FF95B816EBEE7300CBFA00 /* StoryPointBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StoryPointBackground.png; sourceTree = "<group>"; };
+		B4FF95BB16EBF3CE00CBFA00 /* DialogueQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialogueQueue.h; sourceTree = "<group>"; };
+		B4FF95BC16EBF3CE00CBFA00 /* DialogueQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DialogueQueue.m; sourceTree = "<group>"; };
+		B4FF95BE16EC017F00CBFA00 /* button-off-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-off-hd.png"; sourceTree = "<group>"; };
+		B4FF95BF16EC017F00CBFA00 /* button-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-off.png"; sourceTree = "<group>"; };
+		B4FF95C016EC017F00CBFA00 /* button-on-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-on-hd.png"; sourceTree = "<group>"; };
+		B4FF95C116EC017F00CBFA00 /* button-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-on.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -556,6 +567,8 @@
 				6B217C9916DD07E8005FBEA6 /* ImageGridCell.m */,
 				6B217C9B16DD0CBC005FBEA6 /* GameStateManager.h */,
 				6B217C9C16DD0CBC005FBEA6 /* GameStateManager.m */,
+				B4FF95BB16EBF3CE00CBFA00 /* DialogueQueue.h */,
+				B4FF95BC16EBF3CE00CBFA00 /* DialogueQueue.m */,
 			);
 			name = "Game Classes";
 			sourceTree = "<group>";
@@ -1012,6 +1025,10 @@
 		B4A2773F16E9720300B252B8 /* Cards */ = {
 			isa = PBXGroup;
 			children = (
+				B4FF95BE16EC017F00CBFA00 /* button-off-hd.png */,
+				B4FF95BF16EC017F00CBFA00 /* button-off.png */,
+				B4FF95C016EC017F00CBFA00 /* button-on-hd.png */,
+				B4FF95C116EC017F00CBFA00 /* button-on.png */,
 				B4A2774816E9745D00B252B8 /* 1cardselected.png */,
 				B4A2774916E9745D00B252B8 /* 1cardselected-hd.png */,
 				B4A2774A16E9745D00B252B8 /* 1card.png */,
@@ -1137,6 +1154,10 @@
 				B4FF95B616EBE91300CBFA00 /* SplashScreen.png in Resources */,
 				B4FF95B916EBEE7300CBFA00 /* StoryPointBackground-hd.png in Resources */,
 				B4FF95BA16EBEE7300CBFA00 /* StoryPointBackground.png in Resources */,
+				B4FF95C216EC017F00CBFA00 /* button-off-hd.png in Resources */,
+				B4FF95C316EC017F00CBFA00 /* button-off.png in Resources */,
+				B4FF95C416EC017F00CBFA00 /* button-on-hd.png in Resources */,
+				B4FF95C516EC017F00CBFA00 /* button-on.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1261,6 +1282,7 @@
 				6B217C9A16DD07E8005FBEA6 /* ImageGridCell.m in Sources */,
 				6B217C9D16DD0CBC005FBEA6 /* GameStateManager.m in Sources */,
 				B4A2773E16E6727800B252B8 /* MainMenuScreenLayer.m in Sources */,
+				B4FF95BD16EBF3CE00CBFA00 /* DialogueQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

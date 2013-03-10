@@ -8,6 +8,7 @@
 
 #import "CountingGameLayer.h"
 #import "TalkingHead.h"
+#import "DialogueQueue.h"
 
 
 @implementation CountingGameLayer
@@ -36,17 +37,15 @@
 	if( (self=[super init]) ) {
 		
 		selectedTotal = 0;
-		targetTotal = 19;
+		targetTotal = (arc4random() % 31) + 1;
 		
-		for(int i = 0; i < 5; i++) {
-			cards[i] = NO;
-		}
+
 		
 		ada = [[TalkingHead alloc] initWithSpriteNamed:@"ada-portrait.png"];
+		dialogueQueue = [[DialogueQueue alloc] initWithLength:9];
 		
 		// create and initialize a Label
 		selectedTotalLabel = [CCLabelTTF labelWithString:@"0" dimensions:CGSizeMake(200.0f, 100.0f) hAlignment:kCCTextAlignmentRight fontName:@"Mathlete-Bulky" fontSize:64];
-		targetTotalLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Can you make %i?", targetTotal] dimensions:CGSizeMake(220.0f, 100.0f) hAlignment:kCCTextAlignmentCenter fontName:@"Mathlete-Bulky" fontSize:38];
 		
 		CCSprite *backgroundImage = [CCSprite spriteWithFile:@"GameplayBackground.png"];
 		
@@ -57,15 +56,13 @@
 		
 		// position the label on the center of the screen
 		selectedTotalLabel.position =  ccp(1024 - 140,40);
-		targetTotalLabel.position =  ccp(142,300);
 		backgroundImage.position = center;
 		
 		// add the label as a child to this Layer
 		[self addChild:backgroundImage];
 		[self addChild: selectedTotalLabel];
-		[self addChild: targetTotalLabel];
 		[self addChild: ada];
-		
+		[self addChild: dialogueQueue];
 		
 		//
 		// Leaderboards and Achievements
@@ -79,14 +76,29 @@
 		fourCard = [CCMenuItemImage itemWithNormalImage:@"4card.png" selectedImage:@"4cardselected.png" target:self selector:@selector(cardPressed:)];
 		twoCard = [CCMenuItemImage itemWithNormalImage:@"2card.png" selectedImage:@"2cardselected.png" target:self selector:@selector(cardPressed:)];
 		oneCard = [CCMenuItemImage itemWithNormalImage:@"1card.png" selectedImage:@"1cardselected.png" target:self selector:@selector(cardPressed:)];
-		
+				
 		CCMenu *menu = [CCMenu menuWithItems:sixteenCard, eightCard, fourCard, twoCard, oneCard, nil];
 		
 		[menu alignItemsHorizontallyWithPadding:20];
-		[menu setPosition:ccp( 644, size.height/2 - 50)];
+		[menu setPosition:ccp( 644, size.height/2 + 50)];
 		
 		// Add the menu to the layer
 		[self addChild:menu];
+		
+		for(int i = 0; i < 5; i++) {
+			cards[i] = NO;
+			CCSprite *offButton = [CCSprite spriteWithFile:@"button-off.png"];
+			CCSprite *onButton = [CCSprite spriteWithFile:@"button-on.png"];
+			offButtons[i] = offButton;
+			onButtons[i] = onButton;
+			onButton.opacity = 0;
+			offButton.position = onButton.position = ccp(380+132*i, 300);
+			
+			[self addChild:offButton];
+			[self addChild:onButton];
+		}
+				
+		[dialogueQueue enqueue:[NSString stringWithFormat:@"Can you make %i?", targetTotal]];
 		
 	}
 	return self;
@@ -96,47 +108,39 @@
 	
 	//holy Jesus, this is rough
 	//fix this up ASAP
+	int cardIndex = -1;
+
 	if(sender == sixteenCard) {
-		cards[4] = !cards[4];
-		if(cards[4])
-			selectedTotal += 16;
-		else
-			selectedTotal -= 16;
+		cardIndex = 4;
 	} else if(sender == eightCard) {
-		cards[3] = !cards[3];
-		if(cards[3])
-			selectedTotal += 8;
-		else
-			selectedTotal -= 8;
+		cardIndex = 3;
 	} else if(sender == fourCard) {
-		cards[2] = !cards[2];
-		if(cards[2])
-			selectedTotal += 4;
-		else
-			selectedTotal -= 4;
+		cardIndex = 2;
 	} else if(sender == twoCard) {
-		cards[1] = !cards[1];
-		if(cards[1])
-			selectedTotal += 2;
-		else
-			selectedTotal -= 2;
+		cardIndex = 1;
 	} else if(sender == oneCard) {
-		cards[0] = !cards[0];
-		if(cards[0])
-			selectedTotal += 1;
-		else
-			selectedTotal -= 1;
+		cardIndex = 0;
 	}
 	
-	NSLog(@"%i", selectedTotal);
+	
+	cards[cardIndex] = !cards[cardIndex];
+	
+	if(cards[cardIndex]) {
+		selectedTotal += (1 << cardIndex);
+		[onButtons[4-cardIndex] runAction:[CCFadeIn actionWithDuration:0.1]];
+	} else {
+		selectedTotal -= (1 << cardIndex);
+		[onButtons[4-cardIndex] runAction:[CCFadeOut actionWithDuration:0.1]];
+	}
+	
 	[selectedTotalLabel setString:[NSString stringWithFormat:@"%i", selectedTotal]];
 	
-	if(selectedTotal == targetTotal) {
-		NSLog(@"Good job!");
-		while(targetTotal == selectedTotal)
+	if(selectedTotal == targetTotal) {		
+		while(targetTotal == selectedTotal) {
 			targetTotal = arc4random() % 32;
+		}
 		
-		targetTotalLabel.string = [NSString stringWithFormat:@"Can you make %i?", targetTotal];
+		[dialogueQueue enqueue:[NSString stringWithFormat:@"Good job! Can you make %i?", targetTotal]];
 	}
 		
 }
