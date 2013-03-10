@@ -10,6 +10,7 @@
 #import "TalkingHead.h"
 #import "DialogueQueue.h"
 
+#define NUM_OF_CARDS 5
 
 @implementation CountingGameLayer
 
@@ -38,9 +39,7 @@
 		
 		selectedTotal = 0;
 		targetTotal = (arc4random() % 31) + 1;
-		
-
-		
+				
 		ada = [[TalkingHead alloc] initWithSpriteNamed:@"ada-portrait.png"];
 		dialogueQueue = [[DialogueQueue alloc] initWithLength:9];
 		
@@ -71,13 +70,13 @@
 		// Default font size will be 28 points.
 		[CCMenuItemFont setFontSize:28];
 		
-		sixteenCard = [CCMenuItemImage itemWithNormalImage:@"16card.png" selectedImage:@"16cardselected.png" target:self selector:@selector(cardPressed:)];
-		eightCard = [CCMenuItemImage itemWithNormalImage:@"8card.png" selectedImage:@"8cardselected.png" target:self selector:@selector(cardPressed:)];
-		fourCard = [CCMenuItemImage itemWithNormalImage:@"4card.png" selectedImage:@"4cardselected.png" target:self selector:@selector(cardPressed:)];
-		twoCard = [CCMenuItemImage itemWithNormalImage:@"2card.png" selectedImage:@"2cardselected.png" target:self selector:@selector(cardPressed:)];
-		oneCard = [CCMenuItemImage itemWithNormalImage:@"1card.png" selectedImage:@"1cardselected.png" target:self selector:@selector(cardPressed:)];
+		cardMenuItems[4] = [CCMenuItemImage itemWithNormalImage:@"16card.png" selectedImage:@"16cardselected.png" target:self selector:@selector(cardPressed:)];
+		cardMenuItems[3] = [CCMenuItemImage itemWithNormalImage:@"8card.png" selectedImage:@"8cardselected.png" target:self selector:@selector(cardPressed:)];
+		cardMenuItems[2] = [CCMenuItemImage itemWithNormalImage:@"4card.png" selectedImage:@"4cardselected.png" target:self selector:@selector(cardPressed:)];
+		cardMenuItems[1] = [CCMenuItemImage itemWithNormalImage:@"2card.png" selectedImage:@"2cardselected.png" target:self selector:@selector(cardPressed:)];
+		cardMenuItems[0] = [CCMenuItemImage itemWithNormalImage:@"1card.png" selectedImage:@"1cardselected.png" target:self selector:@selector(cardPressed:)];
 				
-		CCMenu *menu = [CCMenu menuWithItems:sixteenCard, eightCard, fourCard, twoCard, oneCard, nil];
+		CCMenu *menu = [CCMenu menuWithItems:cardMenuItems[4], cardMenuItems[3], cardMenuItems[2], cardMenuItems[1], cardMenuItems[0], nil];
 		
 		[menu alignItemsHorizontallyWithPadding:20];
 		[menu setPosition:ccp( 644, size.height/2 + 50)];
@@ -85,7 +84,7 @@
 		// Add the menu to the layer
 		[self addChild:menu];
 		
-		for(int i = 0; i < 5; i++) {
+		for(int i = 0; i < NUM_OF_CARDS; i++) {
 			cards[i] = NO;
 			CCSprite *offButton = [CCSprite spriteWithFile:@"button-off.png"];
 			CCSprite *onButton = [CCSprite spriteWithFile:@"button-on.png"];
@@ -106,31 +105,23 @@
 
 -(void)cardPressed:(id)sender {
 	
-	//holy Jesus, this is rough
-	//fix this up ASAP
 	int cardIndex = -1;
 
-	if(sender == sixteenCard) {
-		cardIndex = 4;
-	} else if(sender == eightCard) {
-		cardIndex = 3;
-	} else if(sender == fourCard) {
-		cardIndex = 2;
-	} else if(sender == twoCard) {
-		cardIndex = 1;
-	} else if(sender == oneCard) {
-		cardIndex = 0;
+	for(int i = 0; i < NUM_OF_CARDS; i++) {
+		if(sender == cardMenuItems[i]) {
+			cardIndex = i;
+			break;
+		}
 	}
-	
 	
 	cards[cardIndex] = !cards[cardIndex];
 	
 	if(cards[cardIndex]) {
 		selectedTotal += (1 << cardIndex);
-		[onButtons[4-cardIndex] runAction:[CCFadeIn actionWithDuration:0.1]];
+		[onButtons[NUM_OF_CARDS-1-cardIndex] runAction:[CCFadeIn actionWithDuration:0.1]];
 	} else {
 		selectedTotal -= (1 << cardIndex);
-		[onButtons[4-cardIndex] runAction:[CCFadeOut actionWithDuration:0.1]];
+		[onButtons[NUM_OF_CARDS-1-cardIndex] runAction:[CCFadeOut actionWithDuration:0.1]];
 	}
 	
 	[selectedTotalLabel setString:[NSString stringWithFormat:@"%i", selectedTotal]];

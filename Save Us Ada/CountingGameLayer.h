@@ -14,14 +14,11 @@
 @interface CountingGameLayer : CCLayer {
     int selectedTotal;
     int targetTotal;
-	CCMenuItem	*sixteenCard,
-				*eightCard,
-				*fourCard,
-				*twoCard,
-				*oneCard;
+
 	CCLabelTTF	*selectedTotalLabel;
 
 	BOOL cards[5];
+	CCMenuItem *cardMenuItems[5];
 	CCSprite *offButtons[5];
 	CCSprite *onButtons[5];
 	

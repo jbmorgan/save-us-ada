@@ -11,9 +11,8 @@
 
 @interface DialogueQueue : CCNode {
 	int maxLength;
+	NSMutableArray *messages;
 }
-
-@property (nonatomic, retain) NSMutableArray *messages;
 
 -(id)initWithLength:(int)length;
 -(void)enqueue:(NSString *)message;

@@ -18,7 +18,7 @@
 -(id)initWithLength:(int)length {
 	if(self = [super init]) {
 		maxLength = length;
-		_messages = [[NSMutableArray alloc] initWithCapacity:maxLength];
+		messages = [[NSMutableArray alloc] initWithCapacity:maxLength];
 		self.position = ccp(142, 320);
 	}
 	return self;
@@ -32,17 +32,17 @@
 	messageLabel.position = ccp(0,-MESSAGE_HEIGHT);
 	[self addChild:messageLabel];
 	
-	[_messages insertObject:messageLabel atIndex:0];
+	[messages insertObject:messageLabel atIndex:0];
 	
-	if(_messages.count > maxLength) {
-		CCLabelTTF *oldestMessage = [_messages lastObject];
+	if(messages.count > maxLength) {
+		CCLabelTTF *oldestMessage = [messages lastObject];
 		[self removeChild:oldestMessage cleanup:NO];
-		[_messages removeLastObject];
+		[messages removeLastObject];
 	}
 	
 	CGFloat currentMessageHeight = 0.0f;
 	
-	for(CCLabelTTF *message in _messages) {		
+	for(CCLabelTTF *message in messages) {		
 		[message runAction:[CCMoveTo actionWithDuration:0.5 position:ccp(0,currentMessageHeight)]];
 		currentMessageHeight += MESSAGE_HEIGHT;
 	}
