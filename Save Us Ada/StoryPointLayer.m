@@ -94,6 +94,7 @@
      CGPoint convertedLocation = [[CCDirector sharedDirector] convertToGL:location];
      */
 	NSLog(@"Touch Ended");
+	[[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
 	[[CCDirector sharedDirector] replaceScene:[CountingGameLayer scene]];
 }
 

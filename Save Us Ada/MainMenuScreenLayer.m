@@ -37,25 +37,16 @@
 	// always call "super" init
 	// Apple recommends to re-assign "self" with the "super's" return value
 	if( (self=[super init]) ) {
-		
-		// create and initialize a Label
-//		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Main Menu Screen" fontName:@"Marker Felt" fontSize:64];
-		
 		CCSprite *backgroundImage = [CCSprite spriteWithFile:@"SplashScreen.png"];
 		
 		// ask director for the window size
 		CGSize size = [[CCDirector sharedDirector] winSize];
 		CGPoint center = ccp( size.width /2 , size.height/2 );
 		
-
-		// position the label on the center of the screen
-//		label.position =  center;
 		backgroundImage.position = center;
 		
 		// add the label as a child to this Layer
 		[self addChild:backgroundImage];
-//		[self addChild: label];
-		
 		
 		//
 		// Leaderboards and Achievements
@@ -77,8 +68,7 @@
 			[[app navController] presentModalViewController:achivementViewController animated:YES];
 			
 			[achivementViewController release];
-		}
-									   ];
+		}];
 		
 		// Leaderboard Menu Item using blocks
 		CCMenuItem *itemLeaderboard = [CCMenuItemFont itemWithString:@"Leaderboard" block:^(id sender) {
@@ -92,13 +82,11 @@
 			[[app navController] presentModalViewController:leaderboardViewController animated:YES];
 			
 			[leaderboardViewController release];
-		}
-									   ];
-		
+		}];
 		
 		CCMenuItem *playMenuItem = [CCMenuItemFont itemWithString:@"Play" block:^(id sender) {
 			NSLog(@"playGame");
-			[[CCDirector sharedDirector] replaceScene:[StoryPointLayer scene]];			
+			[[CCDirector sharedDirector] replaceScene:[StoryPointLayer scene]];
 		}];
 		
 		CCMenu *menu = [CCMenu menuWithItems:playMenuItem, itemAchievement, itemLeaderboard, nil];
