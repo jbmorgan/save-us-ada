@@ -27,11 +27,9 @@
 		B48564D016D33CA000B5E608 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B48564CF16D33CA000B5E608 /* CoreGraphics.framework */; };
 		B48564D216D33CA000B5E608 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B48564D116D33CA000B5E608 /* GameKit.framework */; };
 		B48564D616D33CA100B5E608 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B48564D516D33CA100B5E608 /* Default.png */; };
-		B48564D816D33CA100B5E608 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B48564D716D33CA100B5E608 /* Default-Landscape~ipad.png */; };
 		B48564DA16D33CA100B5E608 /* fps_images.png in Resources */ = {isa = PBXBuildFile; fileRef = B48564D916D33CA100B5E608 /* fps_images.png */; };
 		B48564DC16D33CA100B5E608 /* fps_images-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B48564DB16D33CA100B5E608 /* fps_images-hd.png */; };
 		B48564DE16D33CA100B5E608 /* fps_images-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = B48564DD16D33CA100B5E608 /* fps_images-ipadhd.png */; };
-		B48564E016D33CA100B5E608 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = B48564DF16D33CA100B5E608 /* Icon-72.png */; };
 		B48564E216D33CA100B5E608 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = B48564E116D33CA100B5E608 /* Icon-Small-50.png */; };
 		B48564E416D33CA100B5E608 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = B48564E316D33CA100B5E608 /* Icon-Small.png */; };
 		B48564E616D33CA100B5E608 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B48564E516D33CA100B5E608 /* Icon-Small@2x.png */; };
@@ -174,6 +172,12 @@
 		B4A2776516E9745D00B252B8 /* 8card-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B4A2775516E9745D00B252B8 /* 8card-hd.png */; };
 		B4A2776616E9745D00B252B8 /* 8cardselected.png in Resources */ = {isa = PBXBuildFile; fileRef = B4A2775616E9745D00B252B8 /* 8cardselected.png */; };
 		B4A2776716E9745D00B252B8 /* 8cardselected-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B4A2775716E9745D00B252B8 /* 8cardselected-hd.png */; };
+		B4A52D2F16ED58A200D6201E /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B4A52D2E16ED58A200D6201E /* Default-Portrait~ipad.png */; };
+		B4A52D3116ED58A600D6201E /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B4A52D3016ED58A600D6201E /* Default-Portrait@2x~ipad.png */; };
+		B4A52D3216ED58DC00D6201E /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B4A52D2C16ED589600D6201E /* Default-Landscape~ipad.png */; };
+		B4A52D3416ED58E100D6201E /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B4A52D3316ED58E100D6201E /* Default-Landscape@2x~ipad.png */; };
+		B4A52D3616ED5AA800D6201E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B4A52D3516ED5AA800D6201E /* icon.png */; };
+		B4A52D3816ED5AFF00D6201E /* icon-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B4A52D3716ED5AFF00D6201E /* icon-hd.png */; };
 		B4FF95A716EBE42500CBFA00 /* GameplayBackground-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B4FF95A516EBE42500CBFA00 /* GameplayBackground-hd.png */; };
 		B4FF95A816EBE42500CBFA00 /* GameplayBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = B4FF95A616EBE42500CBFA00 /* GameplayBackground.png */; };
 		B4FF95B216EBE7A100CBFA00 /* Mathlete-Bulky.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B4FF95B116EBE7A100CBFA00 /* Mathlete-Bulky.ttf */; };
@@ -220,11 +224,9 @@
 		B48564CF16D33CA000B5E608 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		B48564D116D33CA000B5E608 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		B48564D516D33CA100B5E608 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/Default.png; sourceTree = "<group>"; };
-		B48564D716D33CA100B5E608 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape~ipad.png"; path = "Resources/Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		B48564D916D33CA100B5E608 /* fps_images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fps_images.png; path = Resources/fps_images.png; sourceTree = "<group>"; };
 		B48564DB16D33CA100B5E608 /* fps_images-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fps_images-hd.png"; path = "Resources/fps_images-hd.png"; sourceTree = "<group>"; };
 		B48564DD16D33CA100B5E608 /* fps_images-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fps_images-ipadhd.png"; path = "Resources/fps_images-ipadhd.png"; sourceTree = "<group>"; };
-		B48564DF16D33CA100B5E608 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "Resources/Icon-72.png"; sourceTree = "<group>"; };
 		B48564E116D33CA100B5E608 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-50.png"; path = "Resources/Icon-Small-50.png"; sourceTree = "<group>"; };
 		B48564E316D33CA100B5E608 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "Resources/Icon-Small.png"; sourceTree = "<group>"; };
 		B48564E516D33CA100B5E608 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "Resources/Icon-Small@2x.png"; sourceTree = "<group>"; };
@@ -502,6 +504,12 @@
 		B4A2775516E9745D00B252B8 /* 8card-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "8card-hd.png"; sourceTree = "<group>"; };
 		B4A2775616E9745D00B252B8 /* 8cardselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 8cardselected.png; sourceTree = "<group>"; };
 		B4A2775716E9745D00B252B8 /* 8cardselected-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "8cardselected-hd.png"; sourceTree = "<group>"; };
+		B4A52D2C16ED589600D6201E /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape~ipad.png"; path = "../Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		B4A52D2E16ED58A200D6201E /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait~ipad.png"; path = "../Default-Portrait~ipad.png"; sourceTree = "<group>"; };
+		B4A52D3016ED58A600D6201E /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait@2x~ipad.png"; path = "../Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
+		B4A52D3316ED58E100D6201E /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape@2x~ipad.png"; path = "../Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
+		B4A52D3516ED5AA800D6201E /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
+		B4A52D3716ED5AFF00D6201E /* icon-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-hd.png"; path = "../icon-hd.png"; sourceTree = "<group>"; };
 		B4FF95A516EBE42500CBFA00 /* GameplayBackground-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GameplayBackground-hd.png"; sourceTree = "<group>"; };
 		B4FF95A616EBE42500CBFA00 /* GameplayBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameplayBackground.png; sourceTree = "<group>"; };
 		B4FF95B116EBE7A100CBFA00 /* Mathlete-Bulky.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mathlete-Bulky.ttf"; sourceTree = "<group>"; };
@@ -631,14 +639,18 @@
 		B48564D416D33CA100B5E608 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B4A52D3716ED5AFF00D6201E /* icon-hd.png */,
+				B4A52D3516ED5AA800D6201E /* icon.png */,
+				B4A52D3316ED58E100D6201E /* Default-Landscape@2x~ipad.png */,
+				B4A52D3016ED58A600D6201E /* Default-Portrait@2x~ipad.png */,
+				B4A52D2E16ED58A200D6201E /* Default-Portrait~ipad.png */,
+				B4A52D2C16ED589600D6201E /* Default-Landscape~ipad.png */,
 				B48564EC16D33CA100B5E608 /* iTunesArtwork */,
 				B48564EB16D33CA100B5E608 /* Info.plist */,
-				B48564D716D33CA100B5E608 /* Default-Landscape~ipad.png */,
 				B48564D516D33CA100B5E608 /* Default.png */,
 				B48564DB16D33CA100B5E608 /* fps_images-hd.png */,
 				B48564DD16D33CA100B5E608 /* fps_images-ipadhd.png */,
 				B48564D916D33CA100B5E608 /* fps_images.png */,
-				B48564DF16D33CA100B5E608 /* Icon-72.png */,
 				B48564E116D33CA100B5E608 /* Icon-Small-50.png */,
 				B48564E316D33CA100B5E608 /* Icon-Small.png */,
 				B48564E516D33CA100B5E608 /* Icon-Small@2x.png */,
@@ -1106,11 +1118,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B48564D616D33CA100B5E608 /* Default.png in Resources */,
-				B48564D816D33CA100B5E608 /* Default-Landscape~ipad.png in Resources */,
 				B48564DA16D33CA100B5E608 /* fps_images.png in Resources */,
 				B48564DC16D33CA100B5E608 /* fps_images-hd.png in Resources */,
 				B48564DE16D33CA100B5E608 /* fps_images-ipadhd.png in Resources */,
-				B48564E016D33CA100B5E608 /* Icon-72.png in Resources */,
 				B48564E216D33CA100B5E608 /* Icon-Small-50.png in Resources */,
 				B48564E416D33CA100B5E608 /* Icon-Small.png in Resources */,
 				B48564E616D33CA100B5E608 /* Icon-Small@2x.png in Resources */,
@@ -1160,6 +1170,12 @@
 				B4FF95C316EC017F00CBFA00 /* button-off.png in Resources */,
 				B4FF95C416EC017F00CBFA00 /* button-on-hd.png in Resources */,
 				B4FF95C516EC017F00CBFA00 /* button-on.png in Resources */,
+				B4A52D2F16ED58A200D6201E /* Default-Portrait~ipad.png in Resources */,
+				B4A52D3116ED58A600D6201E /* Default-Portrait@2x~ipad.png in Resources */,
+				B4A52D3216ED58DC00D6201E /* Default-Landscape~ipad.png in Resources */,
+				B4A52D3416ED58E100D6201E /* Default-Landscape@2x~ipad.png in Resources */,
+				B4A52D3616ED5AA800D6201E /* icon.png in Resources */,
+				B4A52D3816ED5AFF00D6201E /* icon-hd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
