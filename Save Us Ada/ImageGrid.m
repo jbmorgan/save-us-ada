@@ -12,22 +12,16 @@
 
 @implementation ImageGrid
 
-
--(id)initWithWidth:(int)w andHeight:(int)h {
+-(id)init {
 	if(self = [super init]) {
-		_width = w;
-		_height = h;
 		
-		_columns = [NSMutableArray arrayWithCapacity:_width];
-		
-		for(int i = 0; i < _width; i++) {
-			NSMutableArray *column = [NSMutableArray arrayWithCapacity:_height];
-			
-			for(int row = 0; row < _height; row++) {
-				[column addObject:[[ImageGridCell alloc] init]];
+		for(int r = 0; r < SIZE; r++) {
+			for(int c = 0; c < SIZE; c++) {
+				cells[r][c] = [[ImageGridCell alloc] init];
+				cells[r][c].position = ccp(SQUARE_SIZE*r,SQUARE_SIZE*c);
+				[self addChild:cells[r][c]];
 			}
-			
-			[_columns addObject:column];
+			rowLabels[r] = [CCLabelTTF labelWithString:@"" dimensions:CGSizeMake(200, SQUARE_SIZE) hAlignment:kCCTextAlignmentLeft fontName:@"Mathlete-Bulky" fontSize:32.0f];
 		}
 	}
 	return self;

@@ -8,6 +8,8 @@
 
 #import "StoryPointLayer.h"
 #import "CountingGameLayer.h"
+#import "ImageGameLayer.h"
+#import "WordGameLayer.h"
 #import "GameStateManager.h"
 #import "TalkingHead.h"
 
@@ -42,6 +44,8 @@
 		NSString *storyText = nil;
 		gameplayScene = nil;
 		
+		
+		
 		switch ([GameStateManager instance].storyPoint) {
 			case kBabbage:
 				prisonerImage = @"babbage-portrait.png";
@@ -52,13 +56,13 @@
 			case kHopper:
 				prisonerImage = @"hopper-portrait.png";
 				storyText = @"Oh noes, Grace Hopper has been kidnapped again!! Solve this puzzle to save her!";
-				gameplayScene = [CountingGameLayer scene];
+				gameplayScene = [ImageGameLayer scene];
 				break;
 				
 			case kTuring:
 				prisonerImage = @"turing-portrait.png";
 				storyText = @"Oh noes, Alan Turing has been kidnapped again!! Solve this puzzle to save him!";
-				gameplayScene = [CountingGameLayer scene];
+				gameplayScene = [WordGameLayer scene];
 				break;
 				
 			default:

@@ -10,9 +10,12 @@
 #import "cocos2d.h"
 
 @interface ImageGridCell : CCNode {
-    
+    CCSprite *onSprite;
+	CCSprite *offSprite;
 }
 
 @property (readwrite) BOOL selected;
+
+-(void)toggle;
 
 @end

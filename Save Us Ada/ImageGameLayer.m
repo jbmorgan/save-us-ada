@@ -11,6 +11,8 @@
 #import "GameStateManager.h"
 #import "TalkingHead.h"
 #import "DialogueQueue.h"
+#import "ImageGrid.h"
+
 
 @implementation ImageGameLayer
 
@@ -41,6 +43,11 @@
 //		CGSize size = [[CCDirector sharedDirector] winSize];
 //		CGPoint center = ccp( size.width /2 , size.height/2 );
 				
+		imageGrid = [[ImageGrid alloc] init];
+		imageGrid.position = ccp(340,180);
+		[self addChild:imageGrid];
+		
+		
 		[dialogueQueue enqueue:[NSString stringWithFormat:@"Picture. Picture.", nil]];
 	}
 	return self;

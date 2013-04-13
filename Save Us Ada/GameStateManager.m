@@ -18,6 +18,7 @@ static GameStateManager *_gameStateManager = nil;
 	if(!_gameStateManager) {
 		_gameStateManager = [[self alloc] init];
 		_gameStateManager.storyPoint = kBabbage;
+		_gameStateManager.storyPoint = kHopper; //TODO - REMOVE THIS
 	}
 	
 	return _gameStateManager;

@@ -11,4 +11,24 @@
 
 @implementation ImageGridCell
 
+-(id)init {
+	if(self = [super init]) {
+		_selected = NO;
+		onSprite = [CCSprite spriteWithFile:@"gridSquareOn.png"];
+		offSprite = [CCSprite spriteWithFile:@"gridSquareOff.png"];
+		onSprite.visible = _selected;
+		offSprite.visible = !_selected;
+		[self addChild:offSprite];
+		[self addChild:onSprite];
+	}
+	return self;
+}
+
+-(void)toggle {
+	_selected = !_selected;
+	
+	onSprite.visible = _selected;
+	offSprite.visible = !_selected;
+}
+
 @end

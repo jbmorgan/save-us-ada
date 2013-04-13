@@ -8,16 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+
+#define SIZE 7
+#define SQUARE_SIZE 70
+
 @class ImageGridCell;
 
 @interface ImageGrid : CCNode {
-    
+    ImageGridCell* cells[SIZE][SIZE];
+	BOOL targetState[SIZE][SIZE];
+	CCLabelTTF *rowLabels[SIZE];
 }
-
-@property (readonly) int width;
-@property (readonly) int height;
-@property (readonly, retain) NSMutableArray *columns;
-
--(id)initWithWidth:(int)w andHeight:(int)h;
 
 @end
