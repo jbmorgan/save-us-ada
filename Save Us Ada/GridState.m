@@ -65,4 +65,8 @@
 	return [returnString substringToIndex:returnString.length-2];
 }
 
+-(BOOL)stateforRow:(int)r andCol:(int)c {
+	return state[r][c];
+}
+
 @end

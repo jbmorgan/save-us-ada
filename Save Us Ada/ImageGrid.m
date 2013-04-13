@@ -47,6 +47,14 @@
 	return self;
 }
 
+-(BOOL)matchesTarget {
+	for(int r = 0; r < SIZE; r++)
+		for(int c = 0; c < SIZE; c++)
+			if(cells[r][c].selected != [targetState stateforRow:r andCol:c])
+				return NO;
+	return YES;
+}
+
 -(ImageGridCell *)cellAtPoint:(CGPoint)point {
 	int row = (int)point.x/SQUARE_SIZE;
 	int column = (int)point.y/SQUARE_SIZE;

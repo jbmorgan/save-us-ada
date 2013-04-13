@@ -22,5 +22,5 @@
 }
 
 -(void)touchAt:(CGPoint)point;
-
+-(BOOL)matchesTarget;
 @end

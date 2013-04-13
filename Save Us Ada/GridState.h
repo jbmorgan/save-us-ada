@@ -16,5 +16,5 @@
 
 -(id)initWithEncoding:(NSArray *)encodedRows;
 -(NSString *)encodingForRow:(int)row;
-
+-(BOOL)stateforRow:(int)r andCol:(int)c;
 @end

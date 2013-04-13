@@ -56,9 +56,28 @@
 		[dialogueQueue enqueue:[NSString stringWithFormat:@"that the first three squares", nil]];
 		[dialogueQueue enqueue:[NSString stringWithFormat:@"are white and the next", nil]];
 		[dialogueQueue enqueue:[NSString stringWithFormat:@"four are black.", nil]];
+	
+		[self schedule:@selector(tick:)];
 
 	}
 	return self;
+}
+
+-(void)tick:(ccTime)dt
+{
+	if([imageGrid matchesTarget]) {
+		NSLog(@"match");
+		[dialogueQueue enqueue:[NSString stringWithFormat:@"Good job!", nil]];
+		
+		//this should load another puzzle
+		
+		//instead, we'll just skip to the next game
+		[GameStateManager instance].storyPoint = kTuring;
+		[[CCDirector sharedDirector] replaceScene:[StoryPointLayer scene]];
+
+	} else {
+		NSLog(@"no match");
+	}
 }
 
 // on "dealloc" you need to release all your retained objects
