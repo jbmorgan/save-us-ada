@@ -47,14 +47,18 @@
 		imageGrid.position = ccp(340,180);
 		[self addChild:imageGrid];
 		
-		
-		[dialogueQueue enqueue:[NSString stringWithFormat:@"Picture. Picture.", nil]];
+		[dialogueQueue enqueue:[NSString stringWithFormat:@"You can tap the squares to", nil]];
+		[dialogueQueue enqueue:[NSString stringWithFormat:@"turn them on or off.", nil]];
+		[dialogueQueue enqueue:[NSString stringWithFormat:@"The numbers to the side", nil]];
+		[dialogueQueue enqueue:[NSString stringWithFormat:@"tell you how to make a", nil]];
+		[dialogueQueue enqueue:[NSString stringWithFormat:@"picture.", nil]];
+		[dialogueQueue enqueue:[NSString stringWithFormat:@"For instance, \"3, 4\" means", nil]];
+		[dialogueQueue enqueue:[NSString stringWithFormat:@"that the first three squares", nil]];
+		[dialogueQueue enqueue:[NSString stringWithFormat:@"are white and the next", nil]];
+		[dialogueQueue enqueue:[NSString stringWithFormat:@"four are black.", nil]];
+
 	}
 	return self;
-}
-
--(void)gridCellPressed:(id)sender {
-	NSLog(@"Grid cell pressed!");
 }
 
 // on "dealloc" you need to release all your retained objects

@@ -16,6 +16,4 @@
 	ImageGrid *imageGrid;
 }
 
--(void)gridCellPressed:(id)sender;
-
 @end

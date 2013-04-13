@@ -17,9 +17,9 @@
 		6B217C9A16DD07E8005FBEA6 /* ImageGridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B217C9916DD07E8005FBEA6 /* ImageGridCell.m */; };
 		6B217C9D16DD0CBC005FBEA6 /* GameStateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B217C9C16DD0CBC005FBEA6 /* GameStateManager.m */; };
 		B465356816ED418B00CDEBED /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B465356716ED418A00CDEBED /* GameLayer.m */; };
-		B4761E6E1719C6EB0089986C /* gridSquareOn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4761E6A1719C6EB0089986C /* gridSquareOn@2x.png */; };
+		B4761E6E1719C6EB0089986C /* gridSquareOn-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B4761E6A1719C6EB0089986C /* gridSquareOn-hd.png */; };
 		B4761E6F1719C6EB0089986C /* gridSquareOn.png in Resources */ = {isa = PBXBuildFile; fileRef = B4761E6B1719C6EB0089986C /* gridSquareOn.png */; };
-		B4761E701719C6EB0089986C /* gridSquareOff@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4761E6C1719C6EB0089986C /* gridSquareOff@2x.png */; };
+		B4761E701719C6EB0089986C /* gridSquareOff-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B4761E6C1719C6EB0089986C /* gridSquareOff-hd.png */; };
 		B4761E711719C6EB0089986C /* gridSquareOff.png in Resources */ = {isa = PBXBuildFile; fileRef = B4761E6D1719C6EB0089986C /* gridSquareOff.png */; };
 		B4761E741719CAD20089986C /* GridState.m in Sources */ = {isa = PBXBuildFile; fileRef = B4761E731719CAD20089986C /* GridState.m */; };
 		B4761E771719D7910089986C /* gridbutton-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B4761E751719D7910089986C /* gridbutton-hd.png */; };
@@ -220,9 +220,9 @@
 		6B217C9C16DD0CBC005FBEA6 /* GameStateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameStateManager.m; sourceTree = "<group>"; };
 		B465356616ED418A00CDEBED /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
 		B465356716ED418A00CDEBED /* GameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
-		B4761E6A1719C6EB0089986C /* gridSquareOn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gridSquareOn@2x.png"; sourceTree = "<group>"; };
+		B4761E6A1719C6EB0089986C /* gridSquareOn-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gridSquareOn-hd.png"; sourceTree = "<group>"; };
 		B4761E6B1719C6EB0089986C /* gridSquareOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gridSquareOn.png; sourceTree = "<group>"; };
-		B4761E6C1719C6EB0089986C /* gridSquareOff@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gridSquareOff@2x.png"; sourceTree = "<group>"; };
+		B4761E6C1719C6EB0089986C /* gridSquareOff-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gridSquareOff-hd.png"; sourceTree = "<group>"; };
 		B4761E6D1719C6EB0089986C /* gridSquareOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gridSquareOff.png; sourceTree = "<group>"; };
 		B4761E721719CAD20089986C /* GridState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridState.h; sourceTree = "<group>"; };
 		B4761E731719CAD20089986C /* GridState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridState.m; sourceTree = "<group>"; };
@@ -1026,9 +1026,9 @@
 			children = (
 				B4761E751719D7910089986C /* gridbutton-hd.png */,
 				B4761E761719D7910089986C /* gridbutton.png */,
-				B4761E6A1719C6EB0089986C /* gridSquareOn@2x.png */,
+				B4761E6A1719C6EB0089986C /* gridSquareOn-hd.png */,
 				B4761E6B1719C6EB0089986C /* gridSquareOn.png */,
-				B4761E6C1719C6EB0089986C /* gridSquareOff@2x.png */,
+				B4761E6C1719C6EB0089986C /* gridSquareOff-hd.png */,
 				B4761E6D1719C6EB0089986C /* gridSquareOff.png */,
 				B4FF95A516EBE42500CBFA00 /* GameplayBackground-hd.png */,
 				B4FF95A616EBE42500CBFA00 /* GameplayBackground.png */,
@@ -1199,9 +1199,9 @@
 				B4A52D3416ED58E100D6201E /* Default-Landscape@2x~ipad.png in Resources */,
 				B4A52D3616ED5AA800D6201E /* icon.png in Resources */,
 				B4A52D3816ED5AFF00D6201E /* icon-hd.png in Resources */,
-				B4761E6E1719C6EB0089986C /* gridSquareOn@2x.png in Resources */,
+				B4761E6E1719C6EB0089986C /* gridSquareOn-hd.png in Resources */,
 				B4761E6F1719C6EB0089986C /* gridSquareOn.png in Resources */,
-				B4761E701719C6EB0089986C /* gridSquareOff@2x.png in Resources */,
+				B4761E701719C6EB0089986C /* gridSquareOff-hd.png in Resources */,
 				B4761E711719C6EB0089986C /* gridSquareOff.png in Resources */,
 				B4761E771719D7910089986C /* gridbutton-hd.png in Resources */,
 				B4761E781719D7910089986C /* gridbutton.png in Resources */,
