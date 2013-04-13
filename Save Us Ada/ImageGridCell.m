@@ -20,6 +20,9 @@
 		offSprite.visible = !_selected;
 		[self addChild:offSprite];
 		[self addChild:onSprite];
+		
+		_button = [CCMenuItemImage itemWithNormalImage:@"gridbutton.png" selectedImage:@"gridbutton.png" target:self selector:@selector(toggle)];
+//		[self addChild:_button];
 	}
 	return self;
 }

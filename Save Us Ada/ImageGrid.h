@@ -12,12 +12,15 @@
 #define SIZE 7
 #define SQUARE_SIZE 70
 
-@class ImageGridCell;
+@class ImageGridCell, GridState;
 
 @interface ImageGrid : CCNode {
     ImageGridCell* cells[SIZE][SIZE];
-	BOOL targetState[SIZE][SIZE];
 	CCLabelTTF *rowLabels[SIZE];
+	GridState *targetState;
+	CCMenu *buttons;
 }
+
+-(void)touchAt:(CGPoint)point;
 
 @end

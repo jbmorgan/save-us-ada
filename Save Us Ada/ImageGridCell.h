@@ -15,7 +15,7 @@
 }
 
 @property (readwrite) BOOL selected;
-
+@property (readonly) CCMenuItem *button;
 -(void)toggle;
 
 @end
