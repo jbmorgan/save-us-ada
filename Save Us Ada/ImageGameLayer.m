@@ -40,10 +40,48 @@
 	if( (self=[super init]) ) {
 		
 		// ask director for the window size
-//		CGSize size = [[CCDirector sharedDirector] winSize];
-//		CGPoint center = ccp( size.width /2 , size.height/2 );
-				
-		imageGrid = [[ImageGrid alloc] init];
+		//		CGSize size = [[CCDirector sharedDirector] winSize];
+		//		CGPoint center = ccp( size.width /2 , size.height/2 );
+		
+		door = [[NSArray arrayWithObjects:[NSArray arrayWithObjects:[NSNumber numberWithInt:2], [NSNumber numberWithInt:3], [NSNumber numberWithInt:2],nil],
+				 [NSArray arrayWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:3], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], nil],
+				 [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:1], [NSNumber numberWithInt:5], [NSNumber numberWithInt:1], nil],
+				 [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:1], [NSNumber numberWithInt:5], [NSNumber numberWithInt:1], nil],
+				 [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:1], [NSNumber numberWithInt:3], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], nil],
+				 [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:1], [NSNumber numberWithInt:5], [NSNumber numberWithInt:1], nil],
+				 [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:1], [NSNumber numberWithInt:5], [NSNumber numberWithInt:1], nil],
+				 nil] retain];
+		
+		key = [[NSArray arrayWithObjects:
+				[NSArray arrayWithObjects:[NSNumber numberWithInt:7],nil],
+				[NSArray arrayWithObjects:[NSNumber numberWithInt:7],nil],
+				[NSArray arrayWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:5], nil],
+				[NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1],[NSNumber numberWithInt:1], [NSNumber numberWithInt:1], nil],
+				[NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:5], nil],
+				[NSArray arrayWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:5], nil],
+				[NSArray arrayWithObjects:[NSNumber numberWithInt:7], nil],
+				nil] retain];
+		
+		ball = [[NSArray arrayWithObjects:[NSArray arrayWithObjects:[NSNumber numberWithInt:2], [NSNumber numberWithInt:3], [NSNumber numberWithInt:2],nil],
+				 [NSArray arrayWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:5], [NSNumber numberWithInt:1],nil],
+				 [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:7],nil],
+				 [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:7],nil],
+				 [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:7],nil],
+				 [NSArray arrayWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:5], [NSNumber numberWithInt:1],nil],
+				 [NSArray arrayWithObjects:[NSNumber numberWithInt:2], [NSNumber numberWithInt:3], [NSNumber numberWithInt:2],nil],
+				 nil] retain];
+		
+		cat =	[[NSArray arrayWithObjects:[NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:1],[NSNumber numberWithInt:5], [NSNumber numberWithInt:1], nil],
+				  [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:2],[NSNumber numberWithInt:3], [NSNumber numberWithInt:2], nil],
+				  [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:7], nil],
+				  [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:2],[NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:2],nil],
+				  [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:7], nil],
+				  [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:7], nil],
+				  [NSArray arrayWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:5], [NSNumber numberWithInt:1], nil],
+				  nil] retain];
+		
+		currentImageType = kBall;
+		imageGrid = [[ImageGrid alloc] initWithEncoding:ball];
 		imageGrid.position = ccp(340,180);
 		[self addChild:imageGrid];
 		
@@ -56,9 +94,9 @@
 		[dialogueQueue enqueue:[NSString stringWithFormat:@"that the first three squares", nil]];
 		[dialogueQueue enqueue:[NSString stringWithFormat:@"are white and the next", nil]];
 		[dialogueQueue enqueue:[NSString stringWithFormat:@"four are black.", nil]];
-	
+		
 		[self schedule:@selector(tick:)];
-
+		
 	}
 	return self;
 }
@@ -71,10 +109,29 @@
 		
 		//this should load another puzzle
 		
-		//instead, we'll just skip to the next game
-		[GameStateManager instance].storyPoint = kTuring;
-		[[CCDirector sharedDirector] replaceScene:[StoryPointLayer scene]];
-
+		switch (currentImageType) {
+			case kBall:
+				currentImageType = kCat;
+				[imageGrid setEncoding:cat];
+				break;
+			case kCat:
+				currentImageType = kDoor;
+				[imageGrid setEncoding:door];
+				break;
+			case kDoor:
+				currentImageType = kKey;
+				[imageGrid setEncoding:key];
+				break;
+			case kKey:
+				//skip to the next game
+				[GameStateManager instance].storyPoint = kTuring;
+				[[CCDirector sharedDirector] replaceScene:[StoryPointLayer scene]];
+				break;
+			default:
+				break;
+		}
+		
+		
 	} else {
 		NSLog(@"no match");
 	}

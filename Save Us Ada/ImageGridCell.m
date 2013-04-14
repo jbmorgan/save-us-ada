@@ -22,9 +22,14 @@
 		[self addChild:onSprite];
 		
 		_button = [CCMenuItemImage itemWithNormalImage:@"gridbutton.png" selectedImage:@"gridbutton.png" target:self selector:@selector(toggle)];
-//		[self addChild:_button];
 	}
 	return self;
+}
+
+-(void)reset {
+	_selected = NO;
+	onSprite.visible = _selected;
+	offSprite.visible = !_selected;
 }
 
 -(void)toggle {

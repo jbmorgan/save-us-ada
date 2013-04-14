@@ -12,8 +12,20 @@
 
 @class TalkingHead, DialogueQueue, ImageGrid;
 
+typedef enum ImageType {
+	kBall,
+	kCat,
+	kDoor,
+	kKey,
+} ImageType;
+
 @interface ImageGameLayer : GameLayer {
 	ImageGrid *imageGrid;
+	NSArray *ball;
+	NSArray *cat;
+	NSArray *door;
+	NSArray *key;
+	ImageType currentImageType;
 }
 
 @end

@@ -20,7 +20,9 @@
 	GridState *targetState;
 	CCMenu *buttons;
 }
-
+-(id)initWithEncoding:(NSArray *)enc;
+-(void)setEncoding:(NSArray *)enc;
 -(void)touchAt:(CGPoint)point;
 -(BOOL)matchesTarget;
+
 @end

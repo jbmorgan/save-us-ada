@@ -12,65 +12,10 @@
 
 @implementation ImageGrid
 
--(id)init {
+-(id)initWithEncoding:(NSArray *)enc {
 	if(self = [super init]) {
-		
-		NSArray *encodings = [NSArray arrayWithObjects:[NSArray arrayWithObjects:[NSNumber numberWithInt:7],nil],
-							  [NSArray arrayWithObjects:[NSNumber numberWithInt:6], [NSNumber numberWithInt:1], nil],
-							  [NSArray arrayWithObjects:[NSNumber numberWithInt:5], [NSNumber numberWithInt:2], nil],
-							  [NSArray arrayWithObjects:[NSNumber numberWithInt:4], [NSNumber numberWithInt:3], nil],
-							  [NSArray arrayWithObjects:[NSNumber numberWithInt:3], [NSNumber numberWithInt:4], nil],
-							  [NSArray arrayWithObjects:[NSNumber numberWithInt:2], [NSNumber numberWithInt:5], nil],
-							  [NSArray arrayWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:6], nil],
-							  nil];
-		
-		NSArray *dot = [NSArray arrayWithObjects:[NSArray arrayWithObjects:[NSNumber numberWithInt:7],nil],
-						[NSArray arrayWithObjects:[NSNumber numberWithInt:2], [NSNumber numberWithInt:1], [NSNumber numberWithInt:4], nil],
-						[NSArray arrayWithObjects:[NSNumber numberWithInt:7],nil],
-						[NSArray arrayWithObjects:[NSNumber numberWithInt:7],nil],
-						[NSArray arrayWithObjects:[NSNumber numberWithInt:7],nil],
-						[NSArray arrayWithObjects:[NSNumber numberWithInt:7],nil],
-						[NSArray arrayWithObjects:[NSNumber numberWithInt:7],nil],
-						nil];
-		
-		NSArray *door = [NSArray arrayWithObjects:[NSArray arrayWithObjects:[NSNumber numberWithInt:2], [NSNumber numberWithInt:3], [NSNumber numberWithInt:2],nil],
-						 [NSArray arrayWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:3], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], nil],
-						 [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:1], [NSNumber numberWithInt:5], [NSNumber numberWithInt:1], nil],
-						 [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:1], [NSNumber numberWithInt:5], [NSNumber numberWithInt:1], nil],
-						 [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:1], [NSNumber numberWithInt:3], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], nil],
-						 [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:1], [NSNumber numberWithInt:5], [NSNumber numberWithInt:1], nil],
-						 [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:1], [NSNumber numberWithInt:5], [NSNumber numberWithInt:1], nil],
-						nil];
-		
-		NSArray *key = [NSArray arrayWithObjects:
-						[NSArray arrayWithObjects:[NSNumber numberWithInt:7],nil],
-						[NSArray arrayWithObjects:[NSNumber numberWithInt:7],nil],
-						[NSArray arrayWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:5], nil],
-						[NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1],[NSNumber numberWithInt:1], [NSNumber numberWithInt:1], nil],
-						[NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:5], nil],
-						[NSArray arrayWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:5], nil],
-						[NSArray arrayWithObjects:[NSNumber numberWithInt:7], nil],
-						nil];
-		
-		NSArray *ball = [NSArray arrayWithObjects:[NSArray arrayWithObjects:[NSNumber numberWithInt:2], [NSNumber numberWithInt:3], [NSNumber numberWithInt:2],nil],
-						 [NSArray arrayWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:5], [NSNumber numberWithInt:1],nil],
-						 [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:7],nil],
-						 [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:7],nil],
-						 [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:7],nil],
-						 [NSArray arrayWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:5], [NSNumber numberWithInt:1],nil],
-						 [NSArray arrayWithObjects:[NSNumber numberWithInt:2], [NSNumber numberWithInt:3], [NSNumber numberWithInt:2],nil],
-						 nil];
-		
-		NSArray *cat =	[NSArray arrayWithObjects:[NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:1],[NSNumber numberWithInt:5], [NSNumber numberWithInt:1], nil],
-						 [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:2],[NSNumber numberWithInt:3], [NSNumber numberWithInt:2], nil],
-						 [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:7], nil],
-						 [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:2],[NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:2],nil],
-						 [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:7], nil],
-						 [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:7], nil],
-						 [NSArray arrayWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:5], [NSNumber numberWithInt:1], nil],
-						 nil];
-		
-		targetState = [[GridState alloc] initWithEncoding:door];
+				
+		targetState = [[GridState alloc] initWithEncoding:enc];
 		
 		NSMutableArray *menuItems = [NSMutableArray array];
 		
@@ -91,6 +36,17 @@
 		[self addChild:buttons];
 	}
 	return self;
+}
+
+-(void)setEncoding:(NSArray *)enc {
+	GridState *newState = [[GridState alloc] initWithEncoding:[enc copy]];
+	targetState = newState;
+	for(int r = 0; r < SIZE; r++) {
+		for(int c = 0; c < SIZE; c++) {
+			[cells[r][c] reset];
+		}
+		[rowLabels[r] setString:[targetState encodingForRow:r]];
+	}
 }
 
 -(BOOL)matchesTarget {
