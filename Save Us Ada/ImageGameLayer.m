@@ -111,24 +111,31 @@
 		
 		switch (currentImageType) {
 			case kBall:
+				[dialogueQueue enqueue:[NSString stringWithFormat:@"It looks like a ball!", nil]];
 				currentImageType = kCat;
 				[imageGrid setEncoding:cat];
 				break;
 			case kCat:
+				[dialogueQueue enqueue:[NSString stringWithFormat:@"It looks like a cat!", nil]];
 				currentImageType = kDoor;
 				[imageGrid setEncoding:door];
 				break;
 			case kDoor:
+				[dialogueQueue enqueue:[NSString stringWithFormat:@"It looks like a door!", nil]];
 				currentImageType = kKey;
 				[imageGrid setEncoding:key];
 				break;
 			case kKey:
+				[dialogueQueue enqueue:[NSString stringWithFormat:@"It looks like a key!", nil]];
 				//skip to the next game
 				[GameStateManager instance].storyPoint = kTuring;
 				[[CCDirector sharedDirector] replaceScene:[StoryPointLayer scene]];
 				break;
 			default:
 				break;
+				
+			[dialogueQueue enqueue:[NSString stringWithFormat:@"What's next?", nil]];
+
 		}
 		
 		

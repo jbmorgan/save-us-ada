@@ -12,6 +12,7 @@
 #import "WordGameLayer.h"
 #import "GameStateManager.h"
 #import "TalkingHead.h"
+#import "SimpleAudioEngine.h"
 
 @implementation StoryPointLayer
 
@@ -44,7 +45,7 @@
 		NSString *storyText = nil;
 		gameplayScene = nil;
 		
-		
+		[[SimpleAudioEngine sharedEngine] playEffect:@"ohnose.wav"];		
 		
 		switch ([GameStateManager instance].storyPoint) {
 			case kBabbage:

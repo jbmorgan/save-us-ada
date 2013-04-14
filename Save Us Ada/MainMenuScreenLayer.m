@@ -9,6 +9,7 @@
 #import "MainMenuScreenLayer.h"
 #import "CountingGameLayer.h"
 #import "StoryPointLayer.h"
+#import "SimpleAudioEngine.h"
 
 // Needed to obtain the Navigation Controller
 #import "AppDelegate.h"
@@ -37,6 +38,9 @@
 	// always call "super" init
 	// Apple recommends to re-assign "self" with the "super's" return value
 	if( (self=[super init]) ) {
+		
+		[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"Bridges and Balloons.mp3"];
+
 		CCSprite *backgroundImage = [CCSprite spriteWithFile:@"SplashScreen.png"];
 		
 		// ask director for the window size

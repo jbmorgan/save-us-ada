@@ -24,6 +24,9 @@
 		B4761E741719CAD20089986C /* GridState.m in Sources */ = {isa = PBXBuildFile; fileRef = B4761E731719CAD20089986C /* GridState.m */; };
 		B4761E771719D7910089986C /* gridbutton-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = B4761E751719D7910089986C /* gridbutton-hd.png */; };
 		B4761E781719D7910089986C /* gridbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = B4761E761719D7910089986C /* gridbutton.png */; };
+		B47E897E171A47BC00D90C7C /* Bridges and Balloons.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B47E897D171A47BC00D90C7C /* Bridges and Balloons.mp3 */; };
+		B47E8981171A4A5B00D90C7C /* goodjob.wav in Resources */ = {isa = PBXBuildFile; fileRef = B47E8980171A4A5B00D90C7C /* goodjob.wav */; };
+		B47E8983171A4B9B00D90C7C /* ohnose.wav in Resources */ = {isa = PBXBuildFile; fileRef = B47E8982171A4B9B00D90C7C /* ohnose.wav */; };
 		B48564C216D33CA000B5E608 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B48564C116D33CA000B5E608 /* QuartzCore.framework */; };
 		B48564C416D33CA000B5E608 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B48564C316D33CA000B5E608 /* OpenGLES.framework */; };
 		B48564C616D33CA000B5E608 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B48564C516D33CA000B5E608 /* OpenAL.framework */; };
@@ -228,6 +231,9 @@
 		B4761E731719CAD20089986C /* GridState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridState.m; sourceTree = "<group>"; };
 		B4761E751719D7910089986C /* gridbutton-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gridbutton-hd.png"; sourceTree = "<group>"; };
 		B4761E761719D7910089986C /* gridbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gridbutton.png; sourceTree = "<group>"; };
+		B47E897D171A47BC00D90C7C /* Bridges and Balloons.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Bridges and Balloons.mp3"; sourceTree = "<group>"; };
+		B47E8980171A4A5B00D90C7C /* goodjob.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = goodjob.wav; sourceTree = "<group>"; };
+		B47E8982171A4B9B00D90C7C /* ohnose.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ohnose.wav; sourceTree = "<group>"; };
 		B48564BE16D33CA000B5E608 /* Save Us Ada.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Save Us Ada.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B48564C116D33CA000B5E608 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B48564C316D33CA000B5E608 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -603,6 +609,16 @@
 			name = "Game Classes";
 			sourceTree = "<group>";
 		};
+		B47E897F171A47C000D90C7C /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				B47E8982171A4B9B00D90C7C /* ohnose.wav */,
+				B47E8980171A4A5B00D90C7C /* goodjob.wav */,
+				B47E897D171A47BC00D90C7C /* Bridges and Balloons.mp3 */,
+			);
+			name = Audio;
+			sourceTree = "<group>";
+		};
 		B48564B516D33CA000B5E608 = {
 			isa = PBXGroup;
 			children = (
@@ -640,6 +656,7 @@
 		B48564D316D33CA000B5E608 /* Save Us Ada */ = {
 			isa = PBXGroup;
 			children = (
+				B47E897F171A47C000D90C7C /* Audio */,
 				B4FF95C616EC0E5200CBFA00 /* Save Us Ada.entitlements */,
 				B485664B16D33CA200B5E608 /* AppDelegate.h */,
 				B485664C16D33CA200B5E608 /* AppDelegate.m */,
@@ -1205,6 +1222,9 @@
 				B4761E711719C6EB0089986C /* gridSquareOff.png in Resources */,
 				B4761E771719D7910089986C /* gridbutton-hd.png in Resources */,
 				B4761E781719D7910089986C /* gridbutton.png in Resources */,
+				B47E897E171A47BC00D90C7C /* Bridges and Balloons.mp3 in Resources */,
+				B47E8981171A4A5B00D90C7C /* goodjob.wav in Resources */,
+				B47E8983171A4B9B00D90C7C /* ohnose.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

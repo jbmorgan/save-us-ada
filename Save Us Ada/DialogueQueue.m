@@ -7,10 +7,11 @@
 //
 
 #import "DialogueQueue.h"
+#import "SimpleAudioEngine.h"
 
 #define WIDTH 244
 #define HEIGHT 463
-#define MESSAGE_HEIGHT 50.0f
+#define MESSAGE_HEIGHT 40.0f
 #define MIN_TIME_BETWEEN_MESSAGES 0.8f
 
 @implementation DialogueQueue
@@ -47,6 +48,10 @@
 	
 	NSString *message = [messageQueue lastObject];
 
+	if([message isEqualToString:@"Good job!"]) {
+		[[SimpleAudioEngine sharedEngine] playEffect:@"goodjob.wav"];
+	}
+	
 	CCLabelTTF *messageLabel = [[CCLabelTTF labelWithString:message dimensions:CGSizeMake(224.0f, MESSAGE_HEIGHT) hAlignment:kCCTextAlignmentLeft fontName:@"Mathlete-Bulky" fontSize:32] retain];
 	messageLabel.opacity = 0.0;
 	[messageLabel runAction:[CCFadeIn actionWithDuration:0.5]];
