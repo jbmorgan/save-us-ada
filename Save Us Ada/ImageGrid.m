@@ -24,10 +24,56 @@
 							  [NSArray arrayWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:6], nil],
 							  nil];
 		
-		targetState = [[GridState alloc] initWithEncoding:encodings];
+		NSArray *dot = [NSArray arrayWithObjects:[NSArray arrayWithObjects:[NSNumber numberWithInt:7],nil],
+						[NSArray arrayWithObjects:[NSNumber numberWithInt:2], [NSNumber numberWithInt:1], [NSNumber numberWithInt:4], nil],
+						[NSArray arrayWithObjects:[NSNumber numberWithInt:7],nil],
+						[NSArray arrayWithObjects:[NSNumber numberWithInt:7],nil],
+						[NSArray arrayWithObjects:[NSNumber numberWithInt:7],nil],
+						[NSArray arrayWithObjects:[NSNumber numberWithInt:7],nil],
+						[NSArray arrayWithObjects:[NSNumber numberWithInt:7],nil],
+						nil];
+		
+		NSArray *door = [NSArray arrayWithObjects:[NSArray arrayWithObjects:[NSNumber numberWithInt:2], [NSNumber numberWithInt:3], [NSNumber numberWithInt:2],nil],
+						 [NSArray arrayWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:3], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], nil],
+						 [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:1], [NSNumber numberWithInt:5], [NSNumber numberWithInt:1], nil],
+						 [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:1], [NSNumber numberWithInt:5], [NSNumber numberWithInt:1], nil],
+						 [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:1], [NSNumber numberWithInt:3], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], nil],
+						 [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:1], [NSNumber numberWithInt:5], [NSNumber numberWithInt:1], nil],
+						 [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:1], [NSNumber numberWithInt:5], [NSNumber numberWithInt:1], nil],
+						nil];
+		
+		NSArray *key = [NSArray arrayWithObjects:
+						[NSArray arrayWithObjects:[NSNumber numberWithInt:7],nil],
+						[NSArray arrayWithObjects:[NSNumber numberWithInt:7],nil],
+						[NSArray arrayWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:5], nil],
+						[NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1],[NSNumber numberWithInt:1], [NSNumber numberWithInt:1], nil],
+						[NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:5], nil],
+						[NSArray arrayWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:5], nil],
+						[NSArray arrayWithObjects:[NSNumber numberWithInt:7], nil],
+						nil];
+		
+		NSArray *ball = [NSArray arrayWithObjects:[NSArray arrayWithObjects:[NSNumber numberWithInt:2], [NSNumber numberWithInt:3], [NSNumber numberWithInt:2],nil],
+						 [NSArray arrayWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:5], [NSNumber numberWithInt:1],nil],
+						 [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:7],nil],
+						 [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:7],nil],
+						 [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:7],nil],
+						 [NSArray arrayWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:5], [NSNumber numberWithInt:1],nil],
+						 [NSArray arrayWithObjects:[NSNumber numberWithInt:2], [NSNumber numberWithInt:3], [NSNumber numberWithInt:2],nil],
+						 nil];
+		
+		NSArray *cat =	[NSArray arrayWithObjects:[NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:1],[NSNumber numberWithInt:5], [NSNumber numberWithInt:1], nil],
+						 [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:2],[NSNumber numberWithInt:3], [NSNumber numberWithInt:2], nil],
+						 [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:7], nil],
+						 [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:2],[NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:2],nil],
+						 [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:7], nil],
+						 [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:7], nil],
+						 [NSArray arrayWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:5], [NSNumber numberWithInt:1], nil],
+						 nil];
+		
+		targetState = [[GridState alloc] initWithEncoding:door];
 		
 		NSMutableArray *menuItems = [NSMutableArray array];
-
+		
 		for(int r = 0; r < SIZE; r++) {
 			for(int c = 0; c < SIZE; c++) {
 				cells[r][c] = [[ImageGridCell alloc] init];
@@ -37,7 +83,7 @@
 				[menuItems addObject:cells[r][c].button];
 			}
 			rowLabels[r] = [CCLabelTTF labelWithString:[targetState encodingForRow:r] dimensions:CGSizeMake(200, SQUARE_SIZE) hAlignment:kCCTextAlignmentLeft fontName:@"Mathlete-Bulky" fontSize:40.0f];
-			rowLabels[r].position = ccp(600,SQUARE_SIZE*r);
+			rowLabels[r].position = ccp(600, 6*SQUARE_SIZE-SQUARE_SIZE*r);
 			[self addChild:rowLabels[r] z:100];
 		}
 		
@@ -50,7 +96,7 @@
 -(BOOL)matchesTarget {
 	for(int r = 0; r < SIZE; r++)
 		for(int c = 0; c < SIZE; c++)
-			if(cells[r][c].selected != [targetState stateforRow:r andCol:c])
+			if(cells[c][SIZE-1-r].selected != [targetState stateforRow:r andCol:c])
 				return NO;
 	return YES;
 }
