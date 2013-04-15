@@ -14,8 +14,9 @@
 
 @interface CountingGameLayer : GameLayer {
     int selectedTotal;
-    int targetTotal;
-
+	NSArray *targetTotals;
+	int indexOfCurentTotal;
+	
 	CCLabelTTF	*selectedTotalLabel;
 
 	BOOL cardSelected[5];

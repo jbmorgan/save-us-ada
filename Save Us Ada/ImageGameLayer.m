@@ -39,10 +39,6 @@
 	// Apple recommends to re-assign "self" with the "super's" return value
 	if( (self=[super init]) ) {
 		
-		// ask director for the window size
-		//		CGSize size = [[CCDirector sharedDirector] winSize];
-		//		CGPoint center = ccp( size.width /2 , size.height/2 );
-		
 		door = [[NSArray arrayWithObjects:[NSArray arrayWithObjects:[NSNumber numberWithInt:2], [NSNumber numberWithInt:3], [NSNumber numberWithInt:2],nil],
 				 [NSArray arrayWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:3], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], nil],
 				 [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:1], [NSNumber numberWithInt:5], [NSNumber numberWithInt:1], nil],
@@ -62,7 +58,8 @@
 				[NSArray arrayWithObjects:[NSNumber numberWithInt:7], nil],
 				nil] retain];
 		
-		ball = [[NSArray arrayWithObjects:[NSArray arrayWithObjects:[NSNumber numberWithInt:2], [NSNumber numberWithInt:3], [NSNumber numberWithInt:2],nil],
+		ball = [[NSArray arrayWithObjects:
+				 [NSArray arrayWithObjects:[NSNumber numberWithInt:2], [NSNumber numberWithInt:3], [NSNumber numberWithInt:2],nil],
 				 [NSArray arrayWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:5], [NSNumber numberWithInt:1],nil],
 				 [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:7],nil],
 				 [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:7],nil],
@@ -71,7 +68,8 @@
 				 [NSArray arrayWithObjects:[NSNumber numberWithInt:2], [NSNumber numberWithInt:3], [NSNumber numberWithInt:2],nil],
 				 nil] retain];
 		
-		cat =	[[NSArray arrayWithObjects:[NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:1],[NSNumber numberWithInt:5], [NSNumber numberWithInt:1], nil],
+		cat =	[[NSArray arrayWithObjects:
+				  [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:1],[NSNumber numberWithInt:5], [NSNumber numberWithInt:1], nil],
 				  [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:2],[NSNumber numberWithInt:3], [NSNumber numberWithInt:2], nil],
 				  [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:7], nil],
 				  [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:2],[NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:2],nil],
@@ -85,8 +83,8 @@
 		imageGrid.position = ccp(340,180);
 		[self addChild:imageGrid];
 		
-		[dialogueQueue enqueue:[NSString stringWithFormat:@"You can tap the squares to", nil]];
-		[dialogueQueue enqueue:[NSString stringWithFormat:@"turn them on or off.", nil]];
+		[dialogueQueue enqueue:[NSString stringWithFormat:@"You can tap the squares", nil]];
+		[dialogueQueue enqueue:[NSString stringWithFormat:@"to turn them on or off.", nil]];
 		[dialogueQueue enqueue:[NSString stringWithFormat:@"The numbers to the side", nil]];
 		[dialogueQueue enqueue:[NSString stringWithFormat:@"tell you how to make a", nil]];
 		[dialogueQueue enqueue:[NSString stringWithFormat:@"picture.", nil]];
@@ -107,41 +105,51 @@
 		NSLog(@"match");
 		[dialogueQueue enqueue:[NSString stringWithFormat:@"Good job!", nil]];
 		
-		//this should load another puzzle
-		
+		//load the next puzzle
 		switch (currentImageType) {
 			case kBall:
 				[dialogueQueue enqueue:[NSString stringWithFormat:@"It looks like a ball!", nil]];
+				[dialogueQueue enqueue:[NSString stringWithFormat:@"What's next?", nil]];
 				currentImageType = kCat;
 				[imageGrid setEncoding:cat];
+//				[imageGrid performSelector:@selector(setEncoding:) withObject:cat afterDelay:5.0f];
 				break;
+				
 			case kCat:
-				[dialogueQueue enqueue:[NSString stringWithFormat:@"It looks like a cat!", nil]];
+				[dialogueQueue enqueue:[NSString stringWithFormat:@"It's a cat! Meow!", nil]];
+				[dialogueQueue enqueue:[NSString stringWithFormat:@"What's next?", nil]];
 				currentImageType = kDoor;
 				[imageGrid setEncoding:door];
 				break;
+				
 			case kDoor:
 				[dialogueQueue enqueue:[NSString stringWithFormat:@"It looks like a door!", nil]];
+				[dialogueQueue enqueue:[NSString stringWithFormat:@"Maybe we can open it...", nil]];
+				[dialogueQueue enqueue:[NSString stringWithFormat:@"Oh no, it's locked!", nil]];
+				[dialogueQueue enqueue:[NSString stringWithFormat:@"Maybe the next picture", nil]];
+				[dialogueQueue enqueue:[NSString stringWithFormat:@"will help us?", nil]];
 				currentImageType = kKey;
 				[imageGrid setEncoding:key];
 				break;
+				
 			case kKey:
-				[dialogueQueue enqueue:[NSString stringWithFormat:@"It looks like a key!", nil]];
+				[dialogueQueue enqueue:[NSString stringWithFormat:@"It's a key!", nil]];
+				[dialogueQueue enqueue:[NSString stringWithFormat:@"It unlocked the cage!", nil]];
+				[self unschedule:@selector(tick:)];
 				//skip to the next game
-				[GameStateManager instance].storyPoint = kTuring;
-				[[CCDirector sharedDirector] replaceScene:[StoryPointLayer scene]];
+				[self performSelector:@selector(advanceToNextStoryPoint) withObject:self afterDelay:4.0];
 				break;
 			default:
 				break;
-				
-			[dialogueQueue enqueue:[NSString stringWithFormat:@"What's next?", nil]];
-
 		}
-		
-		
 	} else {
-		NSLog(@"no match");
+//		NSLog(@"no match");
 	}
+}
+
+-(void)advanceToNextStoryPoint {
+	[GameStateManager instance].storyPoint = kTuring;
+	[[CCDirector sharedDirector] replaceScene:[StoryPointLayer scene]];
 }
 
 // on "dealloc" you need to release all your retained objects

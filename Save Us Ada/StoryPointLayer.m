@@ -42,27 +42,48 @@
 		ada = [[TalkingHead alloc] initWithSpriteNamed:@"ada-portrait.png"];
 		
 		NSString *prisonerImage = nil;
-		NSString *storyText = nil;
 		gameplayScene = nil;
 		
 		[[SimpleAudioEngine sharedEngine] playEffect:@"ohnose.wav"];		
 		
+		NSArray *babbageText = [NSArray arrayWithObjects:
+								@"Ada: Oh noes! The evil Professor Dos D. Dossington has kidnapped Charles Babbage again!",
+								@"Charles: Help meeee!",
+								@"Ada: How can we get him out of that cage?",
+								@"Charles: Dossington was messing with these cards on the cage. I think it has something to do with that!",
+								nil];
+		
+		NSArray *hopperText = [NSArray arrayWithObjects:
+							   @"Ada: Now he's gotten Grace Hopper!",
+							   @"Grace: He put me in a cage! WHO DOES THAT?!?",
+							   @"Ada: What's this on this cage? It's kind of like a checkerboard and a bunch of numbers.",
+							   @"Ada: Maybe we can figure out what it all means.",
+							   nil];
+		NSArray *turingText = [NSArray arrayWithObjects:
+							   @"Ada: Oh no! Now Alan Turing's been kidnapped!",
+							   @"Alan: Worse things have happened. I would like to get out of here, though.",
+							   @"Ada: You're the father of computing! I won't leave you in there forever!",
+							   @"Alan: How can you know it won't take you forever?",
+							   nil];
+		
+		textIndex = 0;
+		
 		switch ([GameStateManager instance].storyPoint) {
 			case kBabbage:
 				prisonerImage = @"babbage-portrait.png";
-				storyText = @"Oh noes, Charles Babbage has been kidnapped again!! Solve this puzzle to save him!";
+				storyText = babbageText;
 				gameplayScene = [CountingGameLayer scene];
 				break;
 				
 			case kHopper:
 				prisonerImage = @"hopper-portrait.png";
-				storyText = @"Oh noes, Grace Hopper has been kidnapped again!! Solve this puzzle to save her!";
+				storyText = hopperText;
 				gameplayScene = [ImageGameLayer scene];
 				break;
 				
 			case kTuring:
 				prisonerImage = @"turing-portrait.png";
-				storyText = @"Oh noes, Alan Turing has been kidnapped again!! Solve this puzzle to save him!";
+				storyText = turingText;
 				gameplayScene = [WordGameLayer scene];
 				break;
 				
@@ -71,6 +92,7 @@
 		}
 		
 		[gameplayScene retain];
+		[storyText retain];
 		
 		prisoner = [[TalkingHead alloc] initWithSpriteNamed:prisonerImage];
 		prisoner.position = ccp(1024-prisoner.position.x, prisoner.position.y);
@@ -79,7 +101,7 @@
 		prison.position = prisoner.position;
 		
 		// create and initialize a Label
-		CCLabelTTF *messageLabel = [CCLabelTTF labelWithString:storyText dimensions:CGSizeMake(600.0f, 400.0f) hAlignment:kCCTextAlignmentLeft fontName:@"Mathlete-Bulky" fontSize:64];
+		messageLabel = [CCLabelTTF labelWithString:storyText[textIndex] dimensions:CGSizeMake(600.0f, 400.0f) hAlignment:kCCTextAlignmentLeft fontName:@"Mathlete-Bulky" fontSize:64];
 		
 		backgroundImage = [CCSprite spriteWithFile:@"StoryPointBackground.png"];
 		
@@ -110,6 +132,7 @@
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
 	NSLog(@"Touch Began");
+	
 	return YES;
 }
 
@@ -129,8 +152,16 @@
      CGPoint convertedLocation = [[CCDirector sharedDirector] convertToGL:location];
      */
 	NSLog(@"Touch Ended");
-	[[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
-	[[CCDirector sharedDirector] replaceScene:gameplayScene];
+	
+	textIndex++;
+	
+	if(textIndex < storyText.count) {
+		[messageLabel setString:storyText[textIndex]];
+	} else {
+		[[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
+		[[CCDirector sharedDirector] replaceScene:gameplayScene];
+	}
+
 }
 
 // on "dealloc" you need to release all your retained objects

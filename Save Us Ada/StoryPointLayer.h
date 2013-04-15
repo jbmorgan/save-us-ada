@@ -17,8 +17,12 @@
 	TalkingHead *ada,
 				*prisoner;
 	
+	int textIndex;
 	CCScene *gameplayScene;
+	CCLabelTTF *messageLabel;
+	NSArray *storyText;
 }
+
 
 // returns a CCScene that contains the StoryPointLayer as the only child
 +(CCScene *) scene;

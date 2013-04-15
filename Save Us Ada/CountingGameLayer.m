@@ -40,20 +40,34 @@
 	if( (self=[super init]) ) {
 		
 		selectedTotal = 0;
-		targetTotal = (arc4random() % 31) + 1;
+		indexOfCurentTotal = 0;
+		targetTotals = [[NSArray arrayWithObjects:
+						 [NSNumber numberWithInt:1],
+						 [NSNumber numberWithInt:0],
+						 [NSNumber numberWithInt:2],
+						 [NSNumber numberWithInt:3],
+						 [NSNumber numberWithInt:4],
+						 [NSNumber numberWithInt:9],
+						 [NSNumber numberWithInt:7],
+						 [NSNumber numberWithInt:28],
+						 [NSNumber numberWithInt:15],
+						 nil] retain];
 		
 		// create and initialize a Label
 		selectedTotalLabel = [CCLabelTTF labelWithString:@"0" dimensions:CGSizeMake(150.0f, 150.0f) hAlignment:kCCTextAlignmentCenter fontName:@"Mathlete-Bulky" fontSize:128];
-				
+		CCLabelTTF *combinationLabel = [CCLabelTTF labelWithString:@"7-28-15" dimensions:CGSizeMake(300.0f, 150.0f) hAlignment:kCCTextAlignmentCenter fontName:@"Mathlete-Bulky" fontSize:128];
+		
 		// ask director for the window size
 		CGSize size = [[CCDirector sharedDirector] winSize];
-//		CGPoint center = ccp( size.width /2 , size.height/2 );
+		//		CGPoint center = ccp( size.width /2 , size.height/2 );
 		
 		// position the label on the center of the screen
 		selectedTotalLabel.position =  ccp(644, 150);
+		combinationLabel.position =  ccp(644, 650);
 		
 		// add the label as a child to this Layer
 		[self addChild: selectedTotalLabel];
+		[self addChild: combinationLabel];
 		
 		// Default font size will be 28 points.
 		[CCMenuItemFont setFontSize:28];
@@ -63,7 +77,7 @@
 		cardMenuItems[2] = [CCMenuItemImage itemWithNormalImage:@"4card.png" selectedImage:@"4cardselected.png" target:self selector:@selector(cardPressed:)];
 		cardMenuItems[1] = [CCMenuItemImage itemWithNormalImage:@"2card.png" selectedImage:@"2cardselected.png" target:self selector:@selector(cardPressed:)];
 		cardMenuItems[0] = [CCMenuItemImage itemWithNormalImage:@"1card.png" selectedImage:@"1cardselected.png" target:self selector:@selector(cardPressed:)];
-				
+		
 		CCMenu *menu = [CCMenu menuWithItems:cardMenuItems[4], cardMenuItems[3], cardMenuItems[2], cardMenuItems[1], cardMenuItems[0], nil];
 		
 		[menu alignItemsHorizontallyWithPadding:20];
@@ -84,8 +98,12 @@
 			[self addChild:offButton];
 			[self addChild:onButton];
 		}
-				
-		[dialogueQueue enqueue:[NSString stringWithFormat:@"Can you make %i?", targetTotal]];
+		
+		[dialogueQueue enqueue:@"Look at these weird cards!"];
+		[dialogueQueue enqueue:@"Each one has a number on"];
+		[dialogueQueue enqueue:@"it... and a light below."];
+		[dialogueQueue enqueue:@"Let's touch the card on"];
+		[dialogueQueue enqueue:@"the right."];
 		
 	}
 	return self;
@@ -94,7 +112,7 @@
 -(void)cardPressed:(id)sender {
 	
 	int cardIndex = -1;
-
+	
 	for(int i = 0; i < NUM_OF_CARDS; i++) {
 		if(sender == cardMenuItems[i]) {
 			cardIndex = i;
@@ -114,15 +132,74 @@
 	
 	[selectedTotalLabel setString:[NSString stringWithFormat:@"%i", selectedTotal]];
 	
-	if(selectedTotal == targetTotal) {		
-		while(targetTotal == selectedTotal) {
-			targetTotal = arc4random() % 32;
+	if(selectedTotal == [targetTotals[indexOfCurentTotal] intValue]) {
+		[dialogueQueue enqueue:@"Good job!"];
+		
+		//advance to the next target
+		indexOfCurentTotal++;
+		
+		if(indexOfCurentTotal < targetTotals.count) {
+			
+			switch ([targetTotals[indexOfCurentTotal] intValue]) {
+				case 0:
+					[dialogueQueue enqueue:@"Whoa! That big number"];
+					[dialogueQueue enqueue:@"changed down at the"];
+					[dialogueQueue enqueue:@"bottom."];
+					[dialogueQueue enqueue:@"We touched the 1 card, and now"];
+					[dialogueQueue enqueue:@"it says 1."];
+					[dialogueQueue enqueue:@"What happens if we touch"];
+					[dialogueQueue enqueue:@"the same card again?"];
+					break;
+					
+				case 2:
+					[dialogueQueue enqueue:@"Great! Let's try making 2."];
+					break;
+				case 3:
+					[dialogueQueue enqueue:@"Now try 3... We'll have to"];
+					[dialogueQueue enqueue:@"turn on two cards to do"];
+					[dialogueQueue enqueue:@"this one."];
+					break;
+				case 4:
+					[dialogueQueue enqueue:@"Up next is 4..."];
+					break;
+				case 9:
+					[dialogueQueue enqueue:@"You're pretty good at this."];
+					[dialogueQueue enqueue:@"Can you make a 9?"];
+					break;
+				case 7:
+					[dialogueQueue enqueue:@"Now for the hard stuff."];
+					[dialogueQueue enqueue:@"See those numbers up top?"];
+					[dialogueQueue enqueue:@"I think it's a combination."];
+					[dialogueQueue enqueue:@"The first number is 7..."];
+					break;
+				case 28:
+					[dialogueQueue enqueue:@"The second number is 28..."];
+					break;
+				case 15:
+					[dialogueQueue enqueue:@"The last number is 15."];
+					break;
+				default:
+					[dialogueQueue enqueue:[NSString stringWithFormat:@"Can you make %i?", [targetTotals[indexOfCurentTotal] intValue]]];
+					break;
+			}
+			
+		} else {
+			[dialogueQueue enqueue:@"The door is opening!"];
+			[dialogueQueue enqueue:@"Fantastic!"];
+			
+			indexOfCurentTotal = 0;
+			
+			//advance to the next story point
+			[self performSelector:@selector(advanceToNextStoryPoint) withObject:nil afterDelay:3.0];
 		}
 		
-		[dialogueQueue enqueue:@"Good job!"];
-		[dialogueQueue enqueue:[NSString stringWithFormat:@"Can you make %i?", targetTotal]];
 	}
-		
+	
+}
+
+-(void)advanceToNextStoryPoint {
+	[GameStateManager instance].storyPoint = kHopper;
+	[[CCDirector sharedDirector] replaceScene:[StoryPointLayer scene]];
 }
 
 // on "dealloc" you need to release all your retained objects
