@@ -41,7 +41,7 @@
 //		CGSize size = [[CCDirector sharedDirector] winSize];
 //		CGPoint center = ccp( size.width /2 , size.height/2 );
 		
-		[dialogueQueue enqueue:[NSString stringWithFormat:@"Words??", nil]];
+		[dialogueQueue enqueue:[NSString stringWithFormat:@"Kill screen!!", nil]];
 	}
 	return self;
 }

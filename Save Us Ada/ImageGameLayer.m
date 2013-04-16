@@ -105,21 +105,21 @@
 	if([imageGrid matchesTarget]) {
 		NSLog(@"match");
 		[dialogueQueue enqueue:[NSString stringWithFormat:@"Good job!", nil]];
-		
+
+		[self unschedule:@selector(tick:)];
+
 		//load the next puzzle
 		switch (currentImageType) {
 			case kBall:
 				[dialogueQueue enqueue:[NSString stringWithFormat:@"It looks like a ball!", nil]];
 				[dialogueQueue enqueue:[NSString stringWithFormat:@"What's next?", nil]];
-				currentImageType = kCat;
-				[imageGrid setEncoding:cat];
+				[self performSelector:@selector(advanceToNextPuzzle) withObject:self afterDelay:4.0];
 				break;
 				
 			case kCat:
 				[dialogueQueue enqueue:[NSString stringWithFormat:@"It's a cat! Meow!", nil]];
 				[dialogueQueue enqueue:[NSString stringWithFormat:@"What's next?", nil]];
-				currentImageType = kDoor;
-				[imageGrid setEncoding:door];
+				[self performSelector:@selector(advanceToNextPuzzle) withObject:self afterDelay:4.0];
 				break;
 				
 			case kDoor:
@@ -128,14 +128,12 @@
 				[dialogueQueue enqueue:[NSString stringWithFormat:@"Oh no, it's locked!", nil]];
 				[dialogueQueue enqueue:[NSString stringWithFormat:@"Maybe the next picture", nil]];
 				[dialogueQueue enqueue:[NSString stringWithFormat:@"will help us?", nil]];
-				currentImageType = kKey;
-				[imageGrid setEncoding:key];
+				[self performSelector:@selector(advanceToNextPuzzle) withObject:self afterDelay:4.0];
 				break;
 				
 			case kKey:
 				[dialogueQueue enqueue:[NSString stringWithFormat:@"It's a key!", nil]];
 				[dialogueQueue enqueue:[NSString stringWithFormat:@"It unlocked the cage!", nil]];
-				[self unschedule:@selector(tick:)];
 				//skip to the next game
 				[self performSelector:@selector(advanceToNextStoryPoint) withObject:self afterDelay:4.0];
 				break;
@@ -145,6 +143,28 @@
 	} else {
 //		NSLog(@"no match");
 	}
+}
+
+-(void)advanceToNextPuzzle {
+	switch (currentImageType) {
+		case kBall:
+			currentImageType = kCat;
+			[imageGrid setEncoding:cat];
+			break;
+			
+		case kCat:
+			currentImageType = kDoor;
+			[imageGrid setEncoding:door];
+			break;
+			
+		case kDoor:
+			currentImageType = kKey;
+			[imageGrid setEncoding:key];
+			break;
+		default:
+			break;
+	}
+	[self schedule:@selector(tick:)];
 }
 
 -(void)advanceToNextStoryPoint {
