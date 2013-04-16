@@ -12,6 +12,12 @@
 
 @class TalkingHead, DialogueQueue;
 
+typedef enum HintLevel {
+	kReminder,
+	kNumberOfCards,
+	kLargestCard,
+} HintLevel;
+
 @interface CountingGameLayer : GameLayer {
     int selectedTotal;
 	NSArray *targetTotals;
@@ -23,6 +29,9 @@
 	CCMenuItem *cardMenuItems[5];
 	CCSprite *offButtons[5];
 	CCSprite *onButtons[5];
+	
+	HintLevel currentHintLevel;
+	ccTime timeUntilNextHint;
 }
 
 -(void)cardPressed:(id)sender;

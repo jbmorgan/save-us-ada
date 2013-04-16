@@ -13,6 +13,7 @@
 #import "DialogueQueue.h"
 
 #define NUM_OF_CARDS 5
+#define SECONDS_BEFORE_HINT 45
 
 @implementation CountingGameLayer
 
@@ -52,6 +53,9 @@
 						 [NSNumber numberWithInt:28],
 						 [NSNumber numberWithInt:15],
 						 nil] retain];
+		
+		currentHintLevel = kReminder;
+		timeUntilNextHint = SECONDS_BEFORE_HINT;
 		
 		// create and initialize a Label
 		selectedTotalLabel = [CCLabelTTF labelWithString:@"0" dimensions:CGSizeMake(150.0f, 150.0f) hAlignment:kCCTextAlignmentCenter fontName:@"Mathlete-Bulky" fontSize:128];
@@ -105,8 +109,56 @@
 		[dialogueQueue enqueue:@"Let's touch the card on"];
 		[dialogueQueue enqueue:@"the right."];
 		
+		[self schedule:@selector(tick:)];
+		
 	}
 	return self;
+}
+
+-(void)tick:(ccTime)dt {
+	timeUntilNextHint -= dt;
+	
+	if(timeUntilNextHint < 0) {
+		timeUntilNextHint = SECONDS_BEFORE_HINT;
+		[self offerHint];
+	}
+}
+
+-(void)offerHint {
+	switch (currentHintLevel) {
+		case kReminder:
+			[dialogueQueue enqueue:@"Remember, we need to turn"];
+			[dialogueQueue enqueue:@"on the cards that add up"];
+			[dialogueQueue enqueue:[NSString stringWithFormat:@"to %i.", [targetTotals[indexOfCurentTotal] intValue]]];
+			currentHintLevel = kNumberOfCards;
+			break;
+		case kNumberOfCards:
+			[dialogueQueue enqueue:[NSString stringWithFormat:@"This one will need %i cards.", [self cardsForCurrentTarget]]];
+			currentHintLevel = kLargestCard;
+			break;
+		case kLargestCard:
+			[dialogueQueue enqueue:[NSString stringWithFormat:@"The highest card should be %i.", [self largestCardForCurrentTarget]]];
+			currentHintLevel = kLargestCard;
+			break;
+		default:
+			break;
+	}
+}
+
+-(int)cardsForCurrentTarget {
+	int cards = 0;
+	int target = [targetTotals[indexOfCurentTotal] intValue];
+	
+	while(target > 0) {
+		cards++;
+		target = target / 2;
+	}
+	
+	return cards;
+}
+
+-(int)largestCardForCurrentTarget {
+	return pow(2, (int)log2([targetTotals[indexOfCurentTotal] intValue])) ;
 }
 
 -(void)cardPressed:(id)sender {
@@ -134,6 +186,7 @@
 	
 	if(selectedTotal == [targetTotals[indexOfCurentTotal] intValue]) {
 		[dialogueQueue enqueue:@"Good job!"];
+		currentHintLevel = kReminder;
 		
 		//advance to the next target
 		indexOfCurentTotal++;

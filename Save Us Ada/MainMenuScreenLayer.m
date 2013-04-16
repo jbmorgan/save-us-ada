@@ -42,7 +42,9 @@
 		[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"Bridges and Balloons.mp3"];
 
 		CCSprite *backgroundImage = [CCSprite spriteWithFile:@"SplashScreen.png"];
-		
+		CCSprite *adaSprite = [CCSprite spriteWithFile:@"ada-portrait.png"];
+		adaSprite.position = ccp(300,400);
+		adaSprite.rotation = -30.0f;
 		// ask director for the window size
 		CGSize size = [[CCDirector sharedDirector] winSize];
 		CGPoint center = ccp( size.width /2 , size.height/2 );
@@ -51,7 +53,7 @@
 		
 		// add the label as a child to this Layer
 		[self addChild:backgroundImage];
-		
+		[self addChild:adaSprite];
 		//
 		// Leaderboards and Achievements
 		//

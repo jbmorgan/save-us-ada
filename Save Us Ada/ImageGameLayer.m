@@ -39,7 +39,8 @@
 	// Apple recommends to re-assign "self" with the "super's" return value
 	if( (self=[super init]) ) {
 		
-		door = [[NSArray arrayWithObjects:[NSArray arrayWithObjects:[NSNumber numberWithInt:2], [NSNumber numberWithInt:3], [NSNumber numberWithInt:2],nil],
+		door = [[NSArray arrayWithObjects:
+				 [NSArray arrayWithObjects:[NSNumber numberWithInt:2], [NSNumber numberWithInt:3], [NSNumber numberWithInt:2],nil],
 				 [NSArray arrayWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:3], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], nil],
 				 [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:1], [NSNumber numberWithInt:5], [NSNumber numberWithInt:1], nil],
 				 [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:1], [NSNumber numberWithInt:5], [NSNumber numberWithInt:1], nil],
@@ -112,7 +113,6 @@
 				[dialogueQueue enqueue:[NSString stringWithFormat:@"What's next?", nil]];
 				currentImageType = kCat;
 				[imageGrid setEncoding:cat];
-//				[imageGrid performSelector:@selector(setEncoding:) withObject:cat afterDelay:5.0f];
 				break;
 				
 			case kCat:
