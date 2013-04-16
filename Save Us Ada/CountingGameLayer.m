@@ -251,7 +251,7 @@
 }
 
 -(void)advanceToNextStoryPoint {
-	[GameStateManager instance].storyPoint = kHopper;
+	[GameStateManager instance].storyPoint = kBabbageSaved;
 	[[CCDirector sharedDirector] replaceScene:[StoryPointLayer scene]];
 }
 

@@ -18,7 +18,7 @@
 				*prisoner;
 	
 	int textIndex;
-	CCScene *gameplayScene;
+	Class nextSceneClass;
 	CCLabelTTF *messageLabel;
 	NSArray *storyText;
 }

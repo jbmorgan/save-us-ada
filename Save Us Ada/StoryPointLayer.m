@@ -42,9 +42,8 @@
 		ada = [[TalkingHead alloc] initWithSpriteNamed:@"ada-portrait.png"];
 		
 		NSString *prisonerImage = nil;
-		gameplayScene = nil;
 		
-		[[SimpleAudioEngine sharedEngine] playEffect:@"ohnose.wav"];		
+		[[SimpleAudioEngine sharedEngine] playEffect:@"ohnose.wav"];
 		
 		NSArray *babbageText = [NSArray arrayWithObjects:
 								@"Ada: Oh noes! The evil Professor Dos D. Dossington has kidnapped Charles Babbage again!",
@@ -52,25 +51,25 @@
 								@"Ada: How can we get him out of that cage?",
 								@"Charles: Dossington was messing with these cards on the cage. I think it has something to do with that!",
 								nil];
-
+		
 		NSArray *babbageTextSaved = [NSArray arrayWithObjects:
-								@"Ada: He's saved!",
-								@"Charles: I'm saved!",
-								@"Ada: Yay!",
-								@"Charles: But your princess is in another castle.",
-								@"Ada: What?",
-								nil];
+									 @"Ada: He's saved!",
+									 @"Charles: I'm saved!",
+									 @"Ada: Yay!",
+									 @"Charles: But your princess is in another castle.",
+									 @"Ada: What?",
+									 @"Charles: He also got our friend Grace Hopper.",
+									 nil];
 		
 		NSArray *hopperText = [NSArray arrayWithObjects:
-							   @"Ada: Now he's gotten Grace Hopper!",
 							   @"Grace: He put me in a cage! WHO DOES THAT?!?",
 							   @"Ada: What's this on this cage? It's kind of like a checkerboard and a bunch of numbers.",
 							   @"Ada: Maybe we can figure out what it all means.",
 							   nil];
 		
 		NSArray *hopperTextSaved = [NSArray arrayWithObjects:
-							   @"Grace: Thanks!",
-							   nil];
+									@"Grace: Thanks!",
+									nil];
 		
 		NSArray *turingText = [NSArray arrayWithObjects:
 							   @"Ada: Oh no! Now Alan Turing's been kidnapped!",
@@ -85,38 +84,37 @@
 			case kBabbage:
 				prisonerImage = @"babbage-portrait.png";
 				storyText = babbageText;
-				gameplayScene = [CountingGameLayer scene];
+				nextSceneClass = [CountingGameLayer class];
 				break;
 				
-//			case kBabbageSaved:
-//				prisonerImage = @"babbage-portrait.png";
-//				storyText = babbageTextSaved;
-//				gameplayScene = [StoryPointLayer scene];
-//				break;
+			case kBabbageSaved:
+				prisonerImage = @"babbage-portrait.png";
+				storyText = babbageTextSaved;
+				nextSceneClass = [StoryPointLayer class];
+				break;
 				
 			case kHopper:
 				prisonerImage = @"hopper-portrait.png";
 				storyText = hopperText;
-				gameplayScene = [ImageGameLayer scene];
+				nextSceneClass = [ImageGameLayer class];
 				break;
 				
-//			case kHopperSaved:
-//				prisonerImage = @"hopper-portrait.png";
-//				storyText = hopperTextSaved;
-//				gameplayScene = [StoryPointLayer scene];
-//				break;
+			case kHopperSaved:
+				prisonerImage = @"hopper-portrait.png";
+				storyText = hopperTextSaved;
+				nextSceneClass = [StoryPointLayer class];
+				break;
 				
 			case kTuring:
 				prisonerImage = @"turing-portrait.png";
 				storyText = turingText;
-				gameplayScene = [WordGameLayer scene];
+				nextSceneClass = [WordGameLayer class];
 				break;
 				
 			default:
 				break;
 		}
 		
-		[gameplayScene retain];
 		[storyText retain];
 		
 		prisoner = [[TalkingHead alloc] initWithSpriteNamed:prisonerImage];
@@ -192,9 +190,10 @@
 			[GameStateManager instance].storyPoint = kTuring;
 		}
 		[[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
-		[[CCDirector sharedDirector] replaceScene:gameplayScene];
+		
+		[[CCDirector sharedDirector] replaceScene:[nextSceneClass scene]];
 	}
-
+	
 }
 
 // on "dealloc" you need to release all your retained objects
