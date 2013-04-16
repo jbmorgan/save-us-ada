@@ -13,9 +13,9 @@
 @class TalkingHead, DialogueQueue;
 
 typedef enum HintLevel {
-	kReminder,
-	kNumberOfCards,
-	kLargestCard,
+	kLevel0,
+	kLevel1,
+	kLevel2,
 } HintLevel;
 
 @interface CountingGameLayer : GameLayer {

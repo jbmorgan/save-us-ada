@@ -11,8 +11,11 @@
 
 typedef enum StoryPoint {
 	kBabbage,
+	kBabbageSaved,
 	kHopper,
+	kHopperSaved,
 	kTuring,
+	kTuringSaved,
 	kEnd
 } StoryPoint;
 

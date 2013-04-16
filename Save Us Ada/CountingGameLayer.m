@@ -54,7 +54,7 @@
 						 [NSNumber numberWithInt:15],
 						 nil] retain];
 		
-		currentHintLevel = kReminder;
+		currentHintLevel = kLevel0;
 		timeUntilNextHint = SECONDS_BEFORE_HINT;
 		
 		// create and initialize a Label
@@ -126,19 +126,19 @@
 
 -(void)offerHint {
 	switch (currentHintLevel) {
-		case kReminder:
+		case kLevel0:
 			[dialogueQueue enqueue:@"Remember, we need to turn"];
 			[dialogueQueue enqueue:@"on the cards that add up"];
 			[dialogueQueue enqueue:[NSString stringWithFormat:@"to %i.", [targetTotals[indexOfCurentTotal] intValue]]];
-			currentHintLevel = kNumberOfCards;
+			currentHintLevel = kLevel1;
 			break;
-		case kNumberOfCards:
+		case kLevel1:
 			[dialogueQueue enqueue:[NSString stringWithFormat:@"This one will need %i cards.", [self cardsForCurrentTarget]]];
-			currentHintLevel = kLargestCard;
+			currentHintLevel = kLevel2;
 			break;
-		case kLargestCard:
+		case kLevel2:
 			[dialogueQueue enqueue:[NSString stringWithFormat:@"The highest card should be %i.", [self largestCardForCurrentTarget]]];
-			currentHintLevel = kLargestCard;
+			currentHintLevel = kLevel2;
 			break;
 		default:
 			break;
@@ -186,7 +186,7 @@
 	
 	if(selectedTotal == [targetTotals[indexOfCurentTotal] intValue]) {
 		[dialogueQueue enqueue:@"Good job!"];
-		currentHintLevel = kReminder;
+		currentHintLevel = kLevel0;
 		
 		//advance to the next target
 		indexOfCurentTotal++;

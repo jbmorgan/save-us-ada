@@ -52,6 +52,14 @@
 								@"Ada: How can we get him out of that cage?",
 								@"Charles: Dossington was messing with these cards on the cage. I think it has something to do with that!",
 								nil];
+
+		NSArray *babbageTextSaved = [NSArray arrayWithObjects:
+								@"Ada: He's saved!",
+								@"Charles: I'm saved!",
+								@"Ada: Yay!",
+								@"Charles: But your princess is in another castle.",
+								@"Ada: What?",
+								nil];
 		
 		NSArray *hopperText = [NSArray arrayWithObjects:
 							   @"Ada: Now he's gotten Grace Hopper!",
@@ -59,6 +67,11 @@
 							   @"Ada: What's this on this cage? It's kind of like a checkerboard and a bunch of numbers.",
 							   @"Ada: Maybe we can figure out what it all means.",
 							   nil];
+		
+		NSArray *hopperTextSaved = [NSArray arrayWithObjects:
+							   @"Grace: Thanks!",
+							   nil];
+		
 		NSArray *turingText = [NSArray arrayWithObjects:
 							   @"Ada: Oh no! Now Alan Turing's been kidnapped!",
 							   @"Alan: Worse things have happened. I would like to get out of here, though.",
@@ -75,11 +88,23 @@
 				gameplayScene = [CountingGameLayer scene];
 				break;
 				
+//			case kBabbageSaved:
+//				prisonerImage = @"babbage-portrait.png";
+//				storyText = babbageTextSaved;
+//				gameplayScene = [StoryPointLayer scene];
+//				break;
+				
 			case kHopper:
 				prisonerImage = @"hopper-portrait.png";
 				storyText = hopperText;
 				gameplayScene = [ImageGameLayer scene];
 				break;
+				
+//			case kHopperSaved:
+//				prisonerImage = @"hopper-portrait.png";
+//				storyText = hopperTextSaved;
+//				gameplayScene = [StoryPointLayer scene];
+//				break;
 				
 			case kTuring:
 				prisonerImage = @"turing-portrait.png";
@@ -119,7 +144,9 @@
 		[self addChild: messageLabel];
 		[self addChild: ada];
 		[self addChild: prisoner];
-		[self addChild: prison];
+		
+		if([GameStateManager instance].storyPoint == kBabbage || [GameStateManager instance].storyPoint == kHopper || [GameStateManager instance].storyPoint == kTuring)
+			[self addChild: prison];
 		
 		//register to receive targeted touch events
 		[[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self
@@ -158,6 +185,12 @@
 	if(textIndex < storyText.count) {
 		[messageLabel setString:storyText[textIndex]];
 	} else {
+		
+		if([GameStateManager instance].storyPoint == kBabbageSaved) {
+			[GameStateManager instance].storyPoint = kHopper;
+		} else if ([GameStateManager instance].storyPoint == kHopperSaved) {
+			[GameStateManager instance].storyPoint = kTuring;
+		}
 		[[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
 		[[CCDirector sharedDirector] replaceScene:gameplayScene];
 	}
