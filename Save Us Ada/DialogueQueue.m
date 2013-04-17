@@ -17,20 +17,17 @@
 @implementation DialogueQueue
 
 
--(id)initWithLength:(int)length
-{
+-(id)init{
 	if(self = [super init]) {
-		maxLength = length;
-		messages = [[NSMutableArray alloc] initWithCapacity:maxLength];
-		messageQueue = [[NSMutableArray alloc] initWithCapacity:maxLength];
+		messages = [[NSMutableArray alloc] initWithCapacity:MAX_LENGTH];
+		messageQueue = [[NSMutableArray alloc] initWithCapacity:MAX_LENGTH];
 		self.position = ccp(142, 320);
 		timeSinceLastMessageDisplayed = MIN_TIME_BETWEEN_MESSAGES;
 	}
 	return self;
 }
 
--(void)Update:(ccTime)dt
-{
+-(void)Update:(ccTime)dt {
 	timeSinceLastMessageDisplayed += dt;
 	
 	if(timeSinceLastMessageDisplayed > MIN_TIME_BETWEEN_MESSAGES) {
@@ -60,7 +57,7 @@
 
 	[messages insertObject:messageLabel atIndex:0];
 
-	if(messages.count > maxLength) {
+	if(messages.count > MAX_LENGTH) {
 		CCLabelTTF *oldestMessage = [messages lastObject];
 		[self removeChild:oldestMessage cleanup:NO];
 		[messages removeLastObject];

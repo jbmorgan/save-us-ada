@@ -9,8 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
+#define MAX_LENGTH 11
+
 @interface DialogueQueue : CCNode {
-	int maxLength;
 	NSMutableArray *messageQueue;
 	NSMutableArray *messages;
 	ccTime timeSinceLastMessageDisplayed;
@@ -18,7 +19,6 @@
 
 -(void)Update:(ccTime)dt;
 
--(id)initWithLength:(int)length;
 -(void)enqueue:(NSString *)message;
 
 @end

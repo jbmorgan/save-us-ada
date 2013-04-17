@@ -13,7 +13,6 @@
 #import "DialogueQueue.h"
 
 #define NUM_OF_CARDS 5
-#define SECONDS_BEFORE_HINT 45
 
 @implementation CountingGameLayer
 
@@ -53,9 +52,6 @@
 						 [NSNumber numberWithInt:28],
 						 [NSNumber numberWithInt:15],
 						 nil] retain];
-		
-		currentHintLevel = kLevel0;
-		timeUntilNextHint = SECONDS_BEFORE_HINT;
 		
 		// create and initialize a Label
 		selectedTotalLabel = [CCLabelTTF labelWithString:@"0" dimensions:CGSizeMake(150.0f, 150.0f) hAlignment:kCCTextAlignmentCenter fontName:@"Mathlete-Bulky" fontSize:128];
@@ -108,20 +104,9 @@
 		[dialogueQueue enqueue:@"it... and a light below."];
 		[dialogueQueue enqueue:@"Let's touch the card on"];
 		[dialogueQueue enqueue:@"the right."];
-		
-		[self schedule:@selector(tick:)];
-		
+				
 	}
 	return self;
-}
-
--(void)tick:(ccTime)dt {
-	timeUntilNextHint -= dt;
-	
-	if(timeUntilNextHint < 0) {
-		timeUntilNextHint = SECONDS_BEFORE_HINT;
-		[self offerHint];
-	}
 }
 
 -(void)offerHint {
@@ -137,8 +122,9 @@
 			currentHintLevel = kLevel2;
 			break;
 		case kLevel2:
-			[dialogueQueue enqueue:[NSString stringWithFormat:@"The highest card should be %i.", [self largestCardForCurrentTarget]]];
-			currentHintLevel = kLevel2;
+			[dialogueQueue enqueue:@"The highest card should be"];
+			[dialogueQueue enqueue:[NSString stringWithFormat:@"%i.", [self largestCardForCurrentTarget]]];
+			currentHintLevel = kLevel0;
 			break;
 		default:
 			break;
@@ -146,15 +132,9 @@
 }
 
 -(int)cardsForCurrentTarget {
-	int cards = 0;
 	int target = [targetTotals[indexOfCurentTotal] intValue];
 	
-	while(target > 0) {
-		cards++;
-		target = target / 2;
-	}
-	
-	return cards;
+	return [self numberOfSetBits:target];
 }
 
 -(int)largestCardForCurrentTarget {
@@ -186,7 +166,9 @@
 	
 	if(selectedTotal == [targetTotals[indexOfCurentTotal] intValue]) {
 		[dialogueQueue enqueue:@"Good job!"];
+		
 		currentHintLevel = kLevel0;
+		timeUntilNextHint = SECONDS_BEFORE_HINT;
 		
 		//advance to the next target
 		indexOfCurentTotal++;
@@ -248,6 +230,13 @@
 		
 	}
 	
+}
+
+// magic from Matt Howells ( http://stackoverflow.com/questions/109023/how-to-count-the-number-of-set-bits-in-a-32-bit-integer/ )
+-(int) numberOfSetBits:(int)i {
+    i = i - ((i >> 1) & 0x55555555);
+    i = (i & 0x33333333) + ((i >> 2) & 0x33333333);
+    return (((i + (i >> 4)) & 0x0F0F0F0F) * 0x01010101) >> 24;
 }
 
 -(void)advanceToNextStoryPoint {

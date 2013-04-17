@@ -113,13 +113,13 @@
 			case kBall:
 				[dialogueQueue enqueue:[NSString stringWithFormat:@"It looks like a ball!", nil]];
 				[dialogueQueue enqueue:[NSString stringWithFormat:@"What's next?", nil]];
-				[self performSelector:@selector(advanceToNextPuzzle) withObject:self afterDelay:4.0];
+				[self performSelector:@selector(advanceToNextPuzzle) withObject:self afterDelay:3.0];
 				break;
 				
 			case kCat:
 				[dialogueQueue enqueue:[NSString stringWithFormat:@"It's a cat! Meow!", nil]];
 				[dialogueQueue enqueue:[NSString stringWithFormat:@"What's next?", nil]];
-				[self performSelector:@selector(advanceToNextPuzzle) withObject:self afterDelay:4.0];
+				[self performSelector:@selector(advanceToNextPuzzle) withObject:self afterDelay:3.0];
 				break;
 				
 			case kDoor:
@@ -128,7 +128,7 @@
 				[dialogueQueue enqueue:[NSString stringWithFormat:@"Oh no, it's locked!", nil]];
 				[dialogueQueue enqueue:[NSString stringWithFormat:@"Maybe the next picture", nil]];
 				[dialogueQueue enqueue:[NSString stringWithFormat:@"will help us?", nil]];
-				[self performSelector:@selector(advanceToNextPuzzle) withObject:self afterDelay:4.0];
+				[self performSelector:@selector(advanceToNextPuzzle) withObject:self afterDelay:3.0];
 				break;
 				
 			case kKey:

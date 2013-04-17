@@ -12,6 +12,7 @@
 #import "TalkingHead.h"
 #import "DialogueQueue.h"
 
+
 @implementation GameLayer
 
 // Helper class method that creates a Scene with the CountingGameLayer as the only child.
@@ -38,7 +39,7 @@
 	if( (self=[super init]) ) {
 		
 		ada = [[TalkingHead alloc] initWithSpriteNamed:@"ada-portrait.png"];
-		dialogueQueue = [[DialogueQueue alloc] initWithLength:9];
+		dialogueQueue = [[DialogueQueue alloc] init];
 		
 		CCSprite *backgroundImage = [CCSprite spriteWithFile:@"GameplayBackground.png"];
 		
@@ -55,9 +56,8 @@
 		[self addChild: ada];
 		[self addChild: dialogueQueue];
 		
-		//
-		// Leaderboards and Achievements
-		//
+		currentHintLevel = kLevel0;
+		timeUntilNextHint = SECONDS_BEFORE_HINT;
 		
 		//schedules [self Update:dt] to run every 1/60th second
 		[self schedule:@selector(Update:)];
@@ -69,7 +69,18 @@
 {
     if(![[CCDirector sharedDirector] isPaused]) {
 		[dialogueQueue Update:dt];
+		
+		timeUntilNextHint -= dt;
+		
+		if(timeUntilNextHint < 0) {
+			timeUntilNextHint = SECONDS_BEFORE_HINT;
+			[self offerHint];
+		}
 	}
+}
+
+-(void)offerHint {
+	//used by subclasses
 }
 
 -(void)advanceToStoryPoint:(StoryPoint)storyPoint {
