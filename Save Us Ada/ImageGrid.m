@@ -28,7 +28,7 @@
 				[menuItems addObject:cells[r][c].button];
 			}
 			rowLabels[r] = [CCLabelTTF labelWithString:[targetState encodingForRow:r] dimensions:CGSizeMake(200, SQUARE_SIZE) hAlignment:kCCTextAlignmentLeft fontName:@"Mathlete-Bulky" fontSize:40.0f];
-			rowLabels[r].position = ccp(600, 6*SQUARE_SIZE-SQUARE_SIZE*r);
+			rowLabels[r].position = ccp(560, 6*SQUARE_SIZE-SQUARE_SIZE*r);
 			[self addChild:rowLabels[r] z:100];
 		}
 		

@@ -43,8 +43,6 @@
 		
 		NSString *prisonerImage = nil;
 		
-		[[SimpleAudioEngine sharedEngine] playEffect:@"ohnose.wav"];
-		
 		NSArray *babbageText = [NSArray arrayWithObjects:
 								@"Ada: Oh noes! The evil Professor Dos D. Dossington has kidnapped Charles Babbage again!",
 								@"Charles: Help meeee!",
@@ -143,8 +141,10 @@
 		[self addChild: ada];
 		[self addChild: prisoner];
 		
-		if([GameStateManager instance].storyPoint == kBabbage || [GameStateManager instance].storyPoint == kHopper || [GameStateManager instance].storyPoint == kTuring)
+		if([GameStateManager instance].storyPoint == kBabbage || [GameStateManager instance].storyPoint == kHopper || [GameStateManager instance].storyPoint == kTuring) {
 			[self addChild: prison];
+			[[SimpleAudioEngine sharedEngine] playEffect:@"ohnose.wav"];
+		}
 		
 		//register to receive targeted touch events
 		[[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self
@@ -189,8 +189,8 @@
 		} else if ([GameStateManager instance].storyPoint == kHopperSaved) {
 			[GameStateManager instance].storyPoint = kTuring;
 		}
-		[[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
 		
+		[[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
 		[[CCDirector sharedDirector] replaceScene:[nextSceneClass scene]];
 	}
 	

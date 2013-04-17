@@ -77,33 +77,7 @@
 }
 
 -(void)enqueue:(NSString *)message {
-	NSLog(@"Enqueueing '%@'", message);
 	[messageQueue insertObject:message atIndex:0];
 }
-
-
-//-(void)enqueue:(NSString *)message {
-//	
-//	CCLabelTTF *messageLabel = [[CCLabelTTF labelWithString:message dimensions:CGSizeMake(224.0f, MESSAGE_HEIGHT) hAlignment:kCCTextAlignmentLeft fontName:@"Mathlete-Bulky" fontSize:32] retain];
-//	messageLabel.opacity = 0.0;
-//	[messageLabel runAction:[CCFadeIn actionWithDuration:0.5]];
-//	messageLabel.position = ccp(0,-MESSAGE_HEIGHT);
-//	[self addChild:messageLabel];
-//	
-//	[messages insertObject:messageLabel atIndex:0];
-//	
-//	if(messages.count > maxLength) {
-//		CCLabelTTF *oldestMessage = [messages lastObject];
-//		[self removeChild:oldestMessage cleanup:NO];
-//		[messages removeLastObject];
-//	}
-//	
-//	CGFloat currentMessageHeight = 0.0f;
-//	
-//	for(CCLabelTTF *message in messages) {
-//		[message runAction:[CCMoveTo actionWithDuration:0.5 position:ccp(0,currentMessageHeight)]];
-//		currentMessageHeight += MESSAGE_HEIGHT;
-//	}
-//}
 
 @end

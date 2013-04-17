@@ -135,7 +135,7 @@
 				[dialogueQueue enqueue:[NSString stringWithFormat:@"It's a key!", nil]];
 				[dialogueQueue enqueue:[NSString stringWithFormat:@"It unlocked the cage!", nil]];
 				//skip to the next game
-				[self performSelector:@selector(advanceToNextStoryPoint) withObject:self afterDelay:4.0];
+				[self performSelector:@selector(advanceToNextStoryPoint) withObject:self afterDelay:3.0];
 				break;
 			default:
 				break;
