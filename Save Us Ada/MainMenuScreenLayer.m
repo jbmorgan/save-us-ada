@@ -10,6 +10,7 @@
 #import "CountingGameLayer.h"
 #import "StoryPointLayer.h"
 #import "SimpleAudioEngine.h"
+#import "ImageGameLayer.h"
 
 // Needed to obtain the Navigation Controller
 #import "AppDelegate.h"
@@ -39,7 +40,7 @@
 	// Apple recommends to re-assign "self" with the "super's" return value
 	if( (self=[super init]) ) {
 		
-		[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"Bridges and Balloons.mp3"];
+//		[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"Bridges and Balloons.mp3"];
 
 		CCSprite *backgroundImage = [CCSprite spriteWithFile:@"SplashScreen.png"];
 		CCSprite *adaSprite = [CCSprite spriteWithFile:@"ada-portrait.png"];
@@ -92,7 +93,7 @@
 		
 		CCMenuItem *playMenuItem = [CCMenuItemFont itemWithString:@"Play" block:^(id sender) {
 			NSLog(@"playGame");
-			[[CCDirector sharedDirector] replaceScene:[StoryPointLayer scene]];
+			[[CCDirector sharedDirector] replaceScene:[ImageGameLayer scene]];
 		}];
 		
 		CCMenu *menu = [CCMenu menuWithItems:playMenuItem, itemAchievement, itemLeaderboard, nil];

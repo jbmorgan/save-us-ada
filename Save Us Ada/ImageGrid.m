@@ -12,9 +12,10 @@
 
 @implementation ImageGrid
 
+//initialize the grid with a specific pattern
 -(id)initWithEncoding:(NSArray *)enc {
 	if(self = [super init]) {
-				
+		
 		targetState = [[GridState alloc] initWithEncoding:enc];
 		
 		NSMutableArray *menuItems = [NSMutableArray array];
@@ -38,6 +39,7 @@
 	return self;
 }
 
+//resets the grid's target state and updates the row labels accordingly
 -(void)setEncoding:(NSArray *)enc {
 	GridState *newState = [[GridState alloc] initWithEncoding:[enc copy]];
 	targetState = newState;
@@ -49,12 +51,47 @@
 	}
 }
 
+//whether the state of the grid matches its target state
 -(BOOL)matchesTarget {
 	for(int r = 0; r < SIZE; r++)
 		for(int c = 0; c < SIZE; c++)
 			if(cells[c][SIZE-1-r].selected != [targetState stateforRow:r andCol:c])
 				return NO;
 	return YES;
+}
+
+//returns the index of one of the incorrect rows in the image
+//used for giving hints to the player
+-(int)randomIncorrectRow {
+	NSMutableArray *incorrectRows = [NSMutableArray arrayWithCapacity:SIZE];
+	
+	for(int r = 0; r < SIZE; r++) {
+		for(int c = 0; c < SIZE; c++) {
+			if(cells[c][SIZE-1-r].selected != [targetState stateforRow:r andCol:c]) {
+				[incorrectRows addObject:[NSNumber numberWithInt:r]];
+				break;
+			}
+		}
+	}
+
+	if(incorrectRows.count > 0) {
+		NSNumber *rowNumber = incorrectRows[arc4random_uniform(incorrectRows.count)];
+		return rowNumber.intValue;
+	} else {
+		return -1;
+	}
+}
+
+-(int)countOfIncorrectSquaresInRow:(int)r {
+	
+	int incorrectSquares = 0;
+	
+	for(int c = 0; c < SIZE; c++) {
+		if(cells[c][SIZE-1-r].selected != [targetState stateforRow:r andCol:c]) {
+			incorrectSquares++;
+		}
+	}
+	return incorrectSquares;
 }
 
 -(ImageGridCell *)cellAtPoint:(CGPoint)point {

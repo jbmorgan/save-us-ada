@@ -59,13 +59,13 @@
 		currentHintLevel = kLevel0;
 		timeUntilNextHint = SECONDS_BEFORE_HINT;
 		
-		//schedules [self Update:dt] to run every 1/60th second
-		[self schedule:@selector(Update:)];
+		//schedules [self tick:dt] to run every 1/60th second
+		[self schedule:@selector(tick:)];
 	}
 	return self;
 }
 
--(void)Update:(ccTime)dt
+-(void)tick:(ccTime)dt
 {
     if(![[CCDirector sharedDirector] isPaused]) {
 		[dialogueQueue Update:dt];

@@ -93,15 +93,15 @@
 		[dialogueQueue enqueue:[NSString stringWithFormat:@"that the first three squares", nil]];
 		[dialogueQueue enqueue:[NSString stringWithFormat:@"are white and the next", nil]];
 		[dialogueQueue enqueue:[NSString stringWithFormat:@"four are black.", nil]];
-		
-		[self schedule:@selector(tick:)];
-		
+				
 	}
 	return self;
 }
 
 -(void)tick:(ccTime)dt
 {
+	[super tick:dt];
+	
 	if([imageGrid matchesTarget]) {
 		NSLog(@"match");
 		[dialogueQueue enqueue:[NSString stringWithFormat:@"Good job!", nil]];
@@ -141,11 +141,47 @@
 				break;
 		}
 	} else {
-//		NSLog(@"no match");
+		//no match
 	}
 }
 
+-(void)offerHint {
+	switch (currentHintLevel) {
+		case kLevel0:
+			[dialogueQueue enqueue:@"Remember, the first number on"];
+			[dialogueQueue enqueue:@"on each line matches the"];
+			[dialogueQueue enqueue:@"number of white squares"];
+			[dialogueQueue enqueue:@"on the left side of that."];
+			[dialogueQueue enqueue:@"row."];
+			currentHintLevel = kLevel1;
+			break;
+		case kLevel1:
+			[dialogueQueue enqueue:@"It looks like you have a"];
+			[dialogueQueue enqueue:[NSString stringWithFormat:@"problem in row %i.", [imageGrid randomIncorrectRow]+1]];
+			currentHintLevel = kLevel2;
+			break;
+		case kLevel2:
+			[self offerLevel2Hint];
+			currentHintLevel = kLevel0;
+			break;
+		default:
+			break;
+	}
+}
+
+-(void)offerLevel2Hint {
+	int incorrectRow = [imageGrid randomIncorrectRow];
+	int wrongSquares = [imageGrid countOfIncorrectSquaresInRow:incorrectRow];
+	[dialogueQueue enqueue:[NSString stringWithFormat:@"In row %i, you have %i", incorrectRow, SIZE-wrongSquares]];
+	[dialogueQueue enqueue:@"squares that are wrong."];
+	[dialogueQueue enqueue:[NSString stringWithFormat:@"and %i squares that", wrongSquares]];
+	[dialogueQueue enqueue:@"are wrong."];
+}
+
 -(void)advanceToNextPuzzle {
+	timeUntilNextHint = SECONDS_BEFORE_HINT;
+	currentHintLevel = kLevel0;
+	
 	switch (currentImageType) {
 		case kBall:
 			currentImageType = kCat;

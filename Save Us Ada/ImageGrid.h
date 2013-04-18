@@ -24,5 +24,6 @@
 -(void)setEncoding:(NSArray *)enc;
 -(void)touchAt:(CGPoint)point;
 -(BOOL)matchesTarget;
-
+-(int)randomIncorrectRow;
+-(int)countOfIncorrectSquaresInRow:(int)r;
 @end
