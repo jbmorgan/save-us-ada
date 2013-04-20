@@ -93,7 +93,7 @@
 		
 		CCMenuItem *playMenuItem = [CCMenuItemFont itemWithString:@"Play" block:^(id sender) {
 			NSLog(@"playGame");
-			[[CCDirector sharedDirector] replaceScene:[ImageGameLayer scene]];
+			[[CCDirector sharedDirector] replaceScene:[StoryPointLayer scene]];
 		}];
 		
 		CCMenu *menu = [CCMenu menuWithItems:playMenuItem, itemAchievement, itemLeaderboard, nil];

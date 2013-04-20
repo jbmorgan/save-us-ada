@@ -157,7 +157,8 @@
 			break;
 		case kLevel1:
 			[dialogueQueue enqueue:@"It looks like you have a"];
-			[dialogueQueue enqueue:[NSString stringWithFormat:@"problem in row %i.", [imageGrid randomIncorrectRow]+1]];
+			[dialogueQueue enqueue:[NSString stringWithFormat:@"problem in row %i.",
+									[imageGrid randomIncorrectRow]+1]];
 			currentHintLevel = kLevel2;
 			break;
 		case kLevel2:
@@ -172,9 +173,12 @@
 -(void)offerLevel2Hint {
 	int incorrectRow = [imageGrid randomIncorrectRow];
 	int wrongSquares = [imageGrid countOfIncorrectSquaresInRow:incorrectRow];
-	[dialogueQueue enqueue:[NSString stringWithFormat:@"In row %i, you have %i", incorrectRow, SIZE-wrongSquares]];
+	[dialogueQueue enqueue:[NSString stringWithFormat:@"In row %i, you have %i",
+							incorrectRow,
+							SIZE-wrongSquares]];
 	[dialogueQueue enqueue:@"squares that are wrong."];
-	[dialogueQueue enqueue:[NSString stringWithFormat:@"and %i squares that", wrongSquares]];
+	[dialogueQueue enqueue:[NSString stringWithFormat:@"and %i squares that",
+							wrongSquares]];
 	[dialogueQueue enqueue:@"are wrong."];
 }
 

@@ -54,9 +54,15 @@
 									 @"Ada: He's saved!",
 									 @"Charles: I'm saved!",
 									 @"Ada: Yay!",
+									 @"Ada: That was pretty amazing, right? Did you know that's how computers represent information?",
+									 @"Ada: Not with cards, but with 1s and 0s. It works the same way, though.",
+									 @"Ada: Everything on computers--music, pictures, even video games--are made up of 1s and 0s!",
+									 @"Charles: Hey, I'm still here.",
+									 @"Ada: Oh hey! This guy's pretty famous too. He came up with the idea for the computer way before you were even born!",
+									 @"Charles: You're welcome.",
 									 @"Charles: But your princess is in another castle.",
 									 @"Ada: What?",
-									 @"Charles: He also got our friend Grace Hopper.",
+									 @"Charles: Our friend Grace Hopper has been captured as well.",
 									 nil];
 		
 		NSArray *hopperText = [NSArray arrayWithObjects:
@@ -67,6 +73,14 @@
 		
 		NSArray *hopperTextSaved = [NSArray arrayWithObjects:
 									@"Grace: Thanks!",
+									@"Ada: No problem!",
+									@"Ada: Hey, did you know that computers use codes like we just used to store pictures?",
+									@"Ada: The code takes up less space than the whole picture, so you have room to store as much as you want (almost).",
+									@"Grace: Hello? Did you forget about me?",
+									@"Ada: I could never forget about you! You're like a celebrity to people like me!",
+									@"Ada: Grace here came up with the first compiler!",
+									@"Ada: A compiler is a program that takes words that humans write and turns them into computer programs.",
+									@"Grace: Yep, I'm pretty amazing.  Speaking of which, our friend Alan's been kidnapped, too.",
 									nil];
 		
 		NSArray *turingText = [NSArray arrayWithObjects:

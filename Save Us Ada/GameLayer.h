@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-#define SECONDS_BEFORE_HINT 15
+#define SECONDS_BEFORE_HINT 45
 
 @class TalkingHead, DialogueQueue;
 
